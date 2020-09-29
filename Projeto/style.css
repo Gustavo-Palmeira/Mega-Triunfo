@@ -24,14 +24,14 @@ body {
   border-color: transparent;
 } 
 
-.moldura {
+.input-border {
   border-bottom: 1px solid #000;
   display: inline-block;
   padding: 2px;
   margin: 10px;
 }
 
-.campo-inv {
+.input-invisible {
   border: none;
 }
 
@@ -56,10 +56,6 @@ body {
   border-color: transparent;
   border: 1px solid #000;
   background-color: rgb(12, 0, 39);
-}
-
-.icone-seta {
-  color: white;
 }
 
 
