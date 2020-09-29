@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - Mega Triunfo</title>
+  <title>Conta - Mega Triunfo</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -17,38 +17,39 @@
     integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="script.js"></script>
 </head>
 
 <body>
   <div class="container d-flex justify-content-center align-items-center vh-100">
     <div class="row">
-      <div class="col-12 box-border mx-auto text-center col-5 bg-white">
-        <form class="box-login" action="criar-conta.php">
-          <h1> CRIAR CONTA </h1>
+      <div class="col-12 mx-auto text-center bg-white" id="box-border">
+        <form id="box-login" action="create-user.php">
+          <h1 class="text-uppercase h2"> Criar Conta </h1>
           <label class="mt-3 mb-0" for=""> Usuário </label>
           <div class="input-border mt-0">
             <input class="input-style input-invisible" type="text">
-            <i class="fa fa-user p-2" aria-hidden="true"></i>
+            <img class="icon-style ml-4" src="icons/user.svg" alt="Ícone usuário">
           </div>
           <label class="mb-0" for=""> E-mail </label>
           <div class="input-border mt-0">
             <input class="input-style input-invisible" type="text">
-            <i class="fa fa-envelope p-2" aria-hidden="true"></i>
+            <img class="icon-style ml-4" src="icons/email.svg" alt="Ícone e-mail">
           </div>
           <label class="mb-0" for=""> Senha </label>
           <div class="input-border mt-0">
-            <input class="input-style input-invisible" type="password">
-            <i class="fa fa-key p-2" aria-hidden="true"></i>
+            <input class="input-style input-invisible password-type" type="password">
+            <img class="icon-style icon-eye-style ml-4" src="icons/eye.svg" alt="Ícone senha"
+              onclick="changePassword()">
           </div>
           <label class="mb-0" for=""> Confirmar Senha </label>
           <div class="input-border mt-0">
             <input class="input-style input-invisible" type="password">
-            <i class="fa fa-key p-2" aria-hidden="true"></i>
+            <img class="icon-style ml-4" src="icons/key.svg" alt="Ícone senha">
           </div>
-          <a href="#" class="btn-login mx-auto mt-2">
-            <i class="fa fa-long-arrow-right fa-2x text-white" aria-hidden="true"></i>
-          </a>
+          <button href="#" class="btn mx-auto mt-2">
+            <img class="icon-style icon-arrow-style" src="icons/arrow.svg" alt="Ícone seta">
+          </button>
           <a class="mt-5 text-dark" href="index.html"> Voltar </a>
         </form>
       </div>
