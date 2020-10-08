@@ -24,9 +24,10 @@
   <div class="container d-flex justify-content-center align-items-center vh-100">
     <div class="row">
       <div class="col-12 mx-auto text-center bg-white" id="box-border">
-        <form id="box-login" action="login.php">
-          <h1 class="text-uppercase"> Login </h1>
-          <label class="mt-3 mb-0" for=""> Usuário </label>
+        <form id="box-form-login" action="login.php">
+          <img class="logo" src="./img/logo-mega-triunfo.svg">
+          <!-- <h1 class="text-uppercase"> Login </h1> -->
+          <label class="mb-0" for=""> Usuário </label>
           <div class="input-border mt-0">
             <input class="input-style input-invisible" type="text">
             <img class="icon-style" src="icons/user.svg" alt="Ícone usuário">
@@ -36,9 +37,11 @@
             <input class="input-style input-invisible password-type" type="password">
             <img class="icon-style icon-eye-style" src="icons/eye.svg" alt="Ícone senha" onclick="changePassword()">
           </div>
-          <button href="#" class="btn mx-auto mt-2">
+          <button href="#" class="btn-submit mx-auto mt-2">
+            <span class="btn-border"></span>
             <img class="icon-style icon-arrow-style" src="icons/arrow.svg" alt="Ícone senha">
           </button>
+
           <a class="mt-5 text-dark" href="change-password.html"> Esqueci minha senha </a>
           <a class="text-dark" href="create-user.html"> Criar uma conta </a>
         </form>
