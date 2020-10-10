@@ -10,3 +10,9 @@ function changePassword() {
     document.querySelector('.password-type').type = "password";
   }
 }
+
+document.querySelector("#deckList").addEventListener("scroll", function(){
+  let translate = "translate(0,"+this.scrollTop+"px)";
+  this.querySelector("thead").style.transform = translate;
+});
+
