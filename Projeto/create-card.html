@@ -21,9 +21,9 @@
   <script src='https://kit.fontawesome.com/8e2f41b6ca.js' crossorigin='anonymous'></script>
 </head>
 
-<body class='d-flex flex-wrap vh-100 align-content-center'>
+<body class='d-flex flex-column vh-100 align-content-center justify-content-around text-center'>
 
-  <nav class="navbar mx-auto mb-3 w-80 navbar-expand-lg navbar-dark">
+  <nav class="navbar mx-auto my-3 navbar-expand-lg navbar-dark">
       <div class="navbar-nav">
         <a class="navbar-brand nav-link text-uppercase text-light" href="#">Início</a>
         <a class="navbar-brand nav-link text-uppercase text-light" href="#">Jogo</a>
@@ -36,9 +36,10 @@
     <div class='row bg-white container-shadow'>
       <div class='col-3 container-card'>
         <div class='container d-flex flex-wrap justify-content-center'>
-          <img src='https://via.placeholder.com/300' class='img-fluid mt-4 d-block'>
+          <img src='https://via.placeholder.com/300x400' class='img-fluid mt-3 d-block'>
+          <img src='https://via.placeholder.com/300x250' class='img-fluid mt-1 d-block'>
           <span class='h4 mt-3'>Nome do Baralho</span>
-          <button id='btn-new-card' class='manage-card-buttons mt-4'>
+          <button id='btn-new-card' class='manage-card-buttons mt-3'>
             Nova carta
             <span class='manage-card-buttons-border'></span>
           </button>
@@ -117,7 +118,7 @@
                 <th scope='col'><i class='fas fa-tasks'></i></i></th>
               </tr>
             </thead>
-            <tbody>
+            <tbody class="noselect">
               <!-- Substituir depois por código PHP que vai atualizar com o banco de dados-->
               <tr>
                 <td>Bolsonaro Cloroquina</td>
