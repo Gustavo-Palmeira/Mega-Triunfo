@@ -2,25 +2,25 @@
   --dark-purple: rgb(12, 0, 39);
   --purple: rgb(53, 10, 82);
   --light-blue: rgb(6, 243, 239);
-  --red: rgb(252,53,3);
-  --white: rgb(255,255,255);
-  --black: rgb(0,0,0);
+  --red: rgb(252, 53, 3);
+  --white: rgb(255, 255, 255);
+  --black: rgb(0, 0, 0);
   --light-green: rg(17, 238, 89);
 }
 
 .noselect {
   -webkit-touch-callout: none;
-    -webkit-user-select: none;
-     -khtml-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 body {
   background-size: cover;
-  background-image: url('img/background.jpg');
-  
+  background-image: url("../img/background.jpg");
+
   /* scroll-behavior: smooth; */
 }
 
@@ -40,8 +40,7 @@ body {
   flex-direction: column;
 }
 
-
-.logo{
+.logo {
   transform: translateY(-25%);
 }
 
@@ -54,7 +53,7 @@ body {
   outline-style: none;
   box-shadow: none;
   border-color: transparent;
-} 
+}
 
 .input-border {
   border-bottom: 1px solid var(--black);
@@ -79,7 +78,7 @@ body {
   border: none;
   /* border-radius: none !important; */
 }
-.btn-border{
+.btn-border {
   border: 2px solid var(--light-blue);
   display: block;
   width: 120px;
@@ -103,7 +102,7 @@ body {
   border: 1px solid var(--black);
   /* background-color: rgb(12, 0, 39); */
 }
-.btn-border:hover{
+.btn-border:hover {
   transition: all 250ms !important;
   top: 0px;
   left: 0px;
@@ -195,15 +194,15 @@ Cor da scrollbar
 /* BOTÕES DA TELA DE CADASTRO DE CARTA */
 
 .manage-card-buttons {
-    width: 10vw;
-    height: 7vh;
-    border: 2px;
-    position: relative;
-    font-weight: bold;
-    transition: all 1s !important;
+  width: 10vw;
+  height: 7vh;
+  border: 2px;
+  position: relative;
+  font-weight: bold;
+  transition: all 1s !important;
 }
 
-.manage-card-buttons-border{
+.manage-card-buttons-border {
   border: 2px solid var(--light-blue);
   display: block;
   width: 10vw;
@@ -226,28 +225,33 @@ Cor da scrollbar
   border-color: transparent;
   border: 1px solid var(--black);
 }
-.manage-card-buttons-border:hover{
+.manage-card-buttons-border:hover {
   top: 0px;
   left: 0px;
 }
 
 /* CONFIGURAÇÕES ESPECÍFICAS DOS BOTÕES */
 
-#btn-save-card, #btn-save-deck {
+#btn-save-card,
+#btn-save-deck {
   background-color: var(--green);
   color: var(--white);
 }
 
-#btn-delete-card, #btn-delete-deck {
+#btn-delete-card,
+#btn-delete-deck {
   background-color: var(--red);
   color: var(--white);
 }
 
-#btn-new-card, #btn-close-deck, #btn-new-deck, #btn-add-card {
+#btn-new-card,
+#btn-close-deck,
+#btn-new-deck,
+#btn-add-card {
   background-color: var(--dark-purple);
   color: var(--white);
 }
-#deck-table{
+#deck-table {
   /* height: 90%; */
   overflow: auto;
 }

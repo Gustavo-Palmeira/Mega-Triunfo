@@ -4,7 +4,7 @@
 <head>
   <meta charset='UTF-8'>
   <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <title>Carta - Mega Triunfo</title>
+  <title>Baralho - Mega Triunfo</title>
   <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css'
     integrity='sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z' crossorigin='anonymous'>
   <script src='https://code.jquery.com/jquery-3.5.1.slim.min.js'
@@ -16,8 +16,8 @@
   <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js'
     integrity='sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV'
     crossorigin='anonymous'></script>
-  <link rel='stylesheet' href='style.css'>
-  <script src='script.js' defer></script>
+  <link rel='stylesheet' href='../css/style.css'>
+  <script src='../js/script.js' defer></script>
   <script src='https://kit.fontawesome.com/8e2f41b6ca.js' crossorigin='anonymous'></script>
 </head>
 
@@ -36,21 +36,71 @@
     <div class='row bg-white container-shadow'>
       <div class='col-3 container-card'>
         <div class='container d-flex flex-wrap justify-content-center'>
-          <span class='h4 mt-3'>Nome do Baralho</span>
-          <button id='btn-new-card' class='manage-card-buttons mt-3'>
-            Aleatório
+          <img src='https://via.placeholder.com/300x400' class='img-fluid mt-4 d-block'>
+
+          <div class="input-group image-container mb-5">
+            <div class="custom-file ">
+              <input type="file" class="custom-file-input" id="cardImage">
+              <label class="custom-file-label text-left" for="cardImage">Escolher foto</label>
+            </div>
+          </div>
+
+          <button id='btn-new-deck' class='manage-card-buttons mt-4 '>
+            Novo Baralho
             <span class='manage-card-buttons-border'></span>
           </button>
+
+          <button id='btn-add-card' class='manage-card-buttons mt-3 '>
+            Adicionar Carta
+            <span class='manage-card-buttons-border'></span>
+          </button>
+
         </div>
       </div>
-      <div class='col-6 container-card'>
-        <div class='container d-flex flex-wrap justify-content-center'>
-          <span class='h4 mt-3'>Nome do Baralho</span>
-          <button id='btn-new-card' class='manage-card-buttons mt-3'>
-            Jogar
-            <span class='manage-card-buttons-border'></span>
-          </button>
-        </div>
+
+      <div class='col-6 d-flex flex-wrap align-content-center justify-content-center container-card '>
+        <h1 class='h2 mb-5'>Cadastro de Baralho</h1>
+
+        <form class='row mx-auto' id='create-deck-form'>
+
+          <div class='col-8 mt-3 mx-auto text-center'>
+            <label for='name' class='d-block'>Nome</label>
+            <input type='text' id='name' name='name' class='input-form'>
+          </div>
+
+          <div class='col-6 mt-4 text-center'>
+            <label for='attribute1' class='d-block'>Nome do Atributo 1</label>
+            <input type='text' id='attribute1' name='attribute1' class='input-form'>
+          </div>
+
+          <div class='col-6 mt-4 text-center'>
+            <label for='attribute2' class='d-block'>Nome do Atributo 2</label>
+            <input type='text' id='attribute2' name='attribute2' class='input-form'>
+          </div>
+
+          <div class='col-6 mt-3 text-center'>
+            <label for='attribute3' class='d-block'>Nome do Atributo 3</label>
+            <input type='text' id='attribute3' name='attribute3' class='input-form'>
+          </div>
+
+          <div class='col-6 mt-3 text-center'>
+            <label for='attribute4' class='d-block'>Nome do Atributo 4</label>
+            <input type='text' id='attribute4' name='attribute4' class='input-form'>
+          </div>
+
+
+          <div class='card-buttons d-flex mx-auto mt-5'>
+            <button type='submit' id='btn-save-deck' name="action" value="Salvar" class='m-2 manage-card-buttons'>
+              <i class="fas fa-save"></i>
+              <span class='manage-card-buttons-border'></span>
+            </button>
+
+            <button type='submit' id='btn-delete-deck' name="action" value="Excluir" class='m-2 manage-card-buttons'>
+              <i class="fas fa-trash-alt"></i>
+              <span class='manage-card-buttons-border'></span>
+            </button>
+          </div>
+        </form>
       </div>
 
       <div class='col-3 d-flex flex-wrap justify-content-center container-card'>
@@ -58,9 +108,9 @@
           <table class='table table-sm table-hover table-bordered'>
             <thead class='thead-color'>
               <tr class='table-fixed-header'>
-                <th scope='col-3 table-fixed-header'>Baralho</th>
-                <th scope='col-3 table-fixed-header'>Cartas</th>
-                <th scope='col-3'><i class='fas fa-tasks'></i></i></th>
+                <th scope='col table-fixed-header'>Baralho</th>
+                <th scope='col table-fixed-header'>Cartas</th>
+                <th scope='col'><i class='fas fa-tasks'></i></i></th>
               </tr>
             </thead>
             <tbody>
@@ -182,7 +232,10 @@
           </table>
         </div>
       </div>
+
     </div>
+    </div>
+
 
 </body>
 
