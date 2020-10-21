@@ -11,8 +11,7 @@ function changePassword() {
   }
 }
 
-document.querySelector("#deckList").addEventListener("scroll", function(){
+document.querySelector("#deck-list").addEventListener("scroll", function(){
   let translate = "translate(0,"+this.scrollTop+"px)";
   this.querySelector("thead").style.transform = translate;
 });
-
