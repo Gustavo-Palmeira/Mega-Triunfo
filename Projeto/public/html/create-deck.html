@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang='pt-br'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Baralho - Mega Triunfo</title>
+  <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css'
+    integrity='sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z' crossorigin='anonymous'>
+  <script src='https://code.jquery.com/jquery-3.5.1.slim.min.js'
+    integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj'
+    crossorigin='anonymous'></script>
+  <script src='https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js'
+    integrity='sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN'
+    crossorigin='anonymous'></script>
+  <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js'
+    integrity='sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV'
+    crossorigin='anonymous'></script>
+  <link rel='stylesheet' href='../css/style.css'>
+  <script src='../js/script.js' defer></script>
+  <script src='https://kit.fontawesome.com/8e2f41b6ca.js' crossorigin='anonymous'></script>
+</head>
+
+<body class='d-flex flex-column vh-100 align-content-center justify-content-around text-center'>
+
+  <nav class="navbar mx-auto my-3 navbar-expand-lg navbar-dark">
+    <div class="navbar-nav">
+      <a class="navbar-brand nav-link text-uppercase text-light" href="#">Início</a>
+      <a class="navbar-brand nav-link text-uppercase text-light" href="#">Jogo</a>
+      <a class="navbar-brand nav-link text-uppercase text-light" href="#">Créditos</a>
+    </div>
+    </div>
+  </nav>
+
+  <main class='container d-flex justify-content-center align-items-center'>
+    <div class='row bg-white container-shadow'>
+      <div class='col-3 container-card'>
+        <div class='container d-flex flex-wrap justify-content-center'>
+          <img src='https://via.placeholder.com/300x400' class='img-fluid mt-4 d-block'>
+
+          <div class="input-group image-container mb-5">
+            <div class="custom-file ">
+              <input type="file" class="custom-file-input" id="cardImage">
+              <label class="custom-file-label text-left" for="cardImage">Escolher foto</label>
+            </div>
+          </div>
+
+          <button id='btn-new-deck' class='manage-card-buttons mt-4 '>
+            Novo Baralho
+            <span class='manage-card-buttons-border'></span>
+          </button>
+
+          <button id='btn-add-card' class='manage-card-buttons mt-3 '>
+            Adicionar Carta
+            <span class='manage-card-buttons-border'></span>
+          </button>
+
+        </div>
+      </div>
+
+      <div class='col-6 d-flex flex-wrap align-content-center justify-content-center container-card '>
+        <h1 class='h2 mb-5'>Cadastro de Baralho</h1>
+
+        <form class='row mx-auto' id='create-deck-form'>
+
+          <div class='col-8 mt-3 mx-auto text-center'>
+            <label for='name' class='d-block'>Nome</label>
+            <input type='text' id='name' name='name' class='input-form'>
+          </div>
+
+          <div class='col-6 mt-4 text-center'>
+            <label for='attribute1' class='d-block'>Nome do Atributo 1</label>
+            <input type='text' id='attribute1' name='attribute1' class='input-form'>
+          </div>
+
+          <div class='col-6 mt-4 text-center'>
+            <label for='attribute2' class='d-block'>Nome do Atributo 2</label>
+            <input type='text' id='attribute2' name='attribute2' class='input-form'>
+          </div>
+
+          <div class='col-6 mt-3 text-center'>
+            <label for='attribute3' class='d-block'>Nome do Atributo 3</label>
+            <input type='text' id='attribute3' name='attribute3' class='input-form'>
+          </div>
+
+          <div class='col-6 mt-3 text-center'>
+            <label for='attribute4' class='d-block'>Nome do Atributo 4</label>
+            <input type='text' id='attribute4' name='attribute4' class='input-form'>
+          </div>
+
+
+          <div class='card-buttons d-flex mx-auto mt-5'>
+            <button type='submit' id='btn-save-deck' name="action" value="Salvar" class='m-2 manage-card-buttons'>
+              <i class="fas fa-save"></i>
+              <span class='manage-card-buttons-border'></span>
+            </button>
+
+            <button type='submit' id='btn-delete-deck' name="action" value="Excluir" class='m-2 manage-card-buttons'>
+              <i class="fas fa-trash-alt"></i>
+              <span class='manage-card-buttons-border'></span>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class='col-3 d-flex flex-wrap justify-content-center container-card'>
+        <div class='table-container table-scrollbar' id='deck-list'>
+          <table class='table table-sm table-hover table-bordered'>
+            <thead class='thead-color'>
+              <tr class='table-fixed-header'>
+                <th scope='col table-fixed-header'>Baralho</th>
+                <th scope='col table-fixed-header'>Cartas</th>
+                <th scope='col'><i class='fas fa-tasks'></i></i></th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Substituir depois por código PHP que vai atualizar com o banco de dados-->
+              <tr>
+                <td>Políticos</td>
+                <td>40</td>
+                <td>
+                  <i class='far fa-edit'></i>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Seleções de futebol</td>
+                <td>40</td>
+                <td>
+                  <i class='far fa-edit'></i>
+                </td>
+              </tr>
+              <tr>
+                <td>Carros</td>
+                <td>40</td>
+                <td>
+                  <i class='far fa-edit'></i>
+                </td>
+              </tr>
+              <tr>
+                <td>Máquinas Agrícolas</td>
+                <td>40</td>
+                <td>
+                  <i class='far fa-edit'></i>
+                </td>
+              </tr>
+              <tr>
+                <td>Melhores frutas</td>
+                <td>40</td>
+                <td>
+                  <i class='far fa-edit'></i>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Políticos</td>
+                <td>40</td>
+                <td>
+                  <i class='far fa-edit'></i>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Seleções de futebol</td>
+                <td>40</td>
+                <td>
+                  <i class='far fa-edit'></i>
+                </td>
+              </tr>
+              <tr>
+                <td>Carros</td>
+                <td>40</td>
+                <td>
+                  <i class='far fa-edit'></i>
+                </td>
+              </tr>
+              <tr>
+                <td>Máquinas Agrícolas</td>
+                <td>40</td>
+                <td>
+                  <i class='far fa-edit'></i>
+                </td>
+              </tr>
+              <tr>
+                <td>Melhores frutas</td>
+                <td>40</td>
+                <td>
+                  <i class='far fa-edit'></i>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Políticos</td>
+                <td>40</td>
+                <td>
+                  <i class='far fa-edit'></i>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Seleções de futebol</td>
+                <td>40</td>
+                <td>
+                  <i class='far fa-edit'></i>
+                </td>
+              </tr>
+              <tr>
+                <td>Carros</td>
+                <td>40</td>
+                <td>
+                  <i class='far fa-edit'></i>
+                </td>
+              </tr>
+              <tr>
+                <td>Máquinas Agrícolas</td>
+                <td>40</td>
+                <td>
+                  <i class='far fa-edit'></i>
+                </td>
+              </tr>
+              <tr>
+                <td>Melhores frutas</td>
+                <td>40</td>
+                <td>
+                  <i class='far fa-edit'></i>
+                </td>
+              </tr>
+
+
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+    </div>
+
+
+</body>
+
+</html>
