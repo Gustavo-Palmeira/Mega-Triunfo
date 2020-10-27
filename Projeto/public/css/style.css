@@ -113,6 +113,10 @@ body {
   width: 2.5vh;
 }
 
+.icon-style-dev {
+  width: 3vh;
+}
+
 .icon-eye-style {
   width: 3vh;
   cursor: pointer;
