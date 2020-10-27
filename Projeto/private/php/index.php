@@ -1,5 +1,5 @@
 <?php echo 'Safety ha?<br>';
-
+//Silence is golden
 
 // TESTE -> REMOVER DEPOIS
 

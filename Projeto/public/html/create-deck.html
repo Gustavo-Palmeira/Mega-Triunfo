@@ -23,34 +23,34 @@
 
 <body class='d-flex flex-column vh-100 align-content-center justify-content-around text-center'>
 
-  <nav class="navbar mx-auto my-3 navbar-expand-lg navbar-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark nav-menu d-flex justify-content-center ml-3">
     <div class="navbar-nav">
       <a class="navbar-brand nav-link text-uppercase text-light" href="#">Início</a>
       <a class="navbar-brand nav-link text-uppercase text-light" href="#">Jogo</a>
-      <a class="navbar-brand nav-link text-uppercase text-light" href="#">Créditos</a>
+      <a class="navbar-brand nav-link text-uppercase text-light" href="credits.html">Créditos</a>
     </div>
     </div>
   </nav>
 
   <main class='container d-flex justify-content-center align-items-center'>
-    <div class='row bg-white container-shadow'>
-      <div class='col-3 container-card'>
+    <div class='row bg-white container-shadow container-size'>
+      <div class='col-3 container-card d-flex align-items-center vh-80'>
         <div class='container d-flex flex-wrap justify-content-center'>
           <img src='https://via.placeholder.com/300x400' class='img-fluid mt-4 d-block'>
 
-          <div class="input-group image-container mb-5">
+          <div class="input-group image-container mb-4">
             <div class="custom-file ">
               <input type="file" class="custom-file-input" id="cardImage">
               <label class="custom-file-label text-left" for="cardImage">Escolher foto</label>
             </div>
           </div>
 
-          <button id='btn-new-deck' class='manage-card-buttons mt-4 '>
+          <button id='btn-new-deck' class='manage-card-buttons'>
             Novo Baralho
             <span class='manage-card-buttons-border'></span>
           </button>
 
-          <button id='btn-add-card' class='manage-card-buttons mt-3 '>
+          <button id='btn-add-card' class='manage-card-buttons mb-4 mt-3'>
             Adicionar Carta
             <span class='manage-card-buttons-border'></span>
           </button>
@@ -103,7 +103,7 @@
         </form>
       </div>
 
-      <div class='col-3 d-flex flex-wrap justify-content-center container-card'>
+      <div class='col-3 d-flex flex-wrap justify-content-center container-card d-flex align-items-center vh-80'>
         <div class='table-container table-scrollbar' id='deck-list'>
           <table class='table table-sm table-hover table-bordered'>
             <thead class='thead-color'>
