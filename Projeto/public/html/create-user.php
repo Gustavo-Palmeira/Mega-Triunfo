@@ -1,24 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Conta - Mega Triunfo</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-    crossorigin="anonymous"></script>
-  <link rel='stylesheet' href='../css/style.css'>
-  <script src='../js/script.js' defer></script>
-</head>
+<?php include('partials/head.php') ?>
 
 <body>
   <div class="container d-flex justify-content-center align-items-center vh-100">
@@ -39,7 +19,8 @@
           <label class="mb-0" for=""> Senha </label>
           <div class="input-border mt-0">
             <input class="input-style input-invisible password-type" type="password">
-            <img class="icon-style icon-eye-style ml-4" src="../img/icons/eye.svg" alt="Ícone senha" onclick="changePassword()">
+            <img class="icon-style icon-eye-style ml-4" src="../img/icons/eye.svg" alt="Ícone senha"
+              onclick="changePassword()">
           </div>
           <label class="mb-0" for=""> Confirmar Senha </label>
           <div class="input-border mt-0">
@@ -50,7 +31,7 @@
             <span class="btn-border"></span>
             <img class="icon-style icon-arrow-style" src="../img/icons/arrow.svg" alt="Ícone senha">
           </button>
-          <a class="mt-5 text-dark" href="../../index.html"> Voltar </a>
+          <a class="mt-5 text-dark" href="../../index.php"> Voltar </a>
         </form>
       </div>
     </div>
