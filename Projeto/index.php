@@ -1,4 +1,4 @@
-<?php include('partials/head.php') ?>
+<?php include('./public/html/partials/indexHead.php') ?>
 
 <body>
   <div class="container d-flex justify-content-center align-items-center vh-100">

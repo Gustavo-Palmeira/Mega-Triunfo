@@ -1,11 +1,14 @@
-<?php 
+<?php
 
 include('partials/head.php');
 include('partials/header.php');
 
+// Se o método POST[action], para salvar, for setado, vai salvar um novo registro
 if (isset($_POST['action'])) {
   require('C:/xampp/htdocs/Reposit_GIT/megaTriunfo/Projeto/private/php/deckAdd.php');
 }
+
+require('C:/xampp/htdocs/Reposit_GIT/megaTriunfo/Projeto/private/php/deckEdit.php');
 
 ?>
 
@@ -44,27 +47,27 @@ if (isset($_POST['action'])) {
 
           <div class='col-8 mt-3 mx-auto text-center'>
             <label for='name' class='d-block'>Nome</label>
-            <input type='text' id='name' name='name' class='input-form'>
+            <input type='text' id='name' name='name' class='input-form' required>
           </div>
 
           <div class='col-6 mt-4 text-center'>
             <label for='attribute1' class='d-block'>Nome do Atributo 1</label>
-            <input type='text' id='attribute1' name='attribute1' class='input-form'>
+            <input type='text' id='attribute1' name='attribute1' class='input-form' required>
           </div>
 
           <div class='col-6 mt-4 text-center'>
             <label for='attribute2' class='d-block'>Nome do Atributo 2</label>
-            <input type='text' id='attribute2' name='attribute2' class='input-form'>
+            <input type='text' id='attribute2' name='attribute2' class='input-form' required>
           </div>
 
           <div class='col-6 mt-3 text-center'>
             <label for='attribute3' class='d-block'>Nome do Atributo 3</label>
-            <input type='text' id='attribute3' name='attribute3' class='input-form'>
+            <input type='text' id='attribute3' name='attribute3' class='input-form' required>
           </div>
 
           <div class='col-6 mt-3 text-center'>
             <label for='attribute4' class='d-block'>Nome do Atributo 4</label>
-            <input type='text' id='attribute4' name='attribute4' class='input-form'>
+            <input type='text' id='attribute4' name='attribute4' class='input-form' required>
           </div>
 
 
@@ -79,8 +82,11 @@ if (isset($_POST['action'])) {
               <span class='manage-card-buttons-border'></span>
             </button>
           </div>
-          
-          <input type='text' id='photo' name='photo' style='display: none;' value='teste foto'>;
+          <!--Recebe o caminho da foto para enviar via POST-->
+          <input type='text' id='deckPhoto' name='deckPhoto' style='display: none;' value='teste foto'>
+          <!--Conversão da variável PHP em JS -->
+          <script>var $PHPEditArray = <?php echo $jsDeckQuery; ?>; </script>
+          </input>
         </form>
       </div>
 
