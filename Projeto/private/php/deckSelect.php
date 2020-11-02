@@ -2,14 +2,14 @@
 
 require 'C:/xampp/htdocs/Reposit_GIT/megaTriunfo/Projeto/private/php/database/db.php';
 
-$dbQuery = $database->query("SELECT deckId, 
+$dbQuery = $database->query('SELECT deckId, 
                                     deckName, 
                                     deckAtt1Name, 
                                     deckAtt2Name, 
                                     deckAtt3Name, 
                                     deckAtt4Name, 
                                     deckPhoto 
-                                    FROM deck ORDER BY deckName");
+                                    FROM deck ORDER BY deckName');
 
 
 foreach($dbQuery as $deckSelect) {
@@ -28,11 +28,12 @@ if (count($deckTable) > 0) {
         echo "<tr>
                 <td>{$register['Name']}</td>
                 <td>23</td>
-                <td><i class='far fa-edit' name='{$register['Id']}'></i></td>                    
+                <td><i class='far fa-edit editIcon' name='{$register['Id']}' style='cursor: pointer;'></i></td>                    
                 ";
     }
 } else {
     echo "<tr>
                 <td colspan='3'>Não há baralhos cadastrados</td>
                 </tr>";
-} 
+}
+
