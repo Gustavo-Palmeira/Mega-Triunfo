@@ -51,7 +51,7 @@ document.querySelector(DOMStrings.cardDecklist).addEventListener('scroll', funct
 // NOTA: Transformar em função - Para cada elemento do tipo "ícone de edição", adicionar uma função ao clique que redireciona para a mesma página, porém setando o método GET com o ID do item clicado
 DOMStrings.editIconsList.forEach(element => {
   element.addEventListener('click', function () {
-    window.location.href = "http://localhost/Reposit_GIT/megaTriunfo/Projeto/public/html/create-deck.php?idForEdit=" + parseInt(element.getAttribute('name'));
+    window.location.href = "http://localhost/Reposit_GIT/Mega-Triunfo/Projeto/public/html/create-deck.php?idForEdit=" + parseInt(element.getAttribute('name'));
   });
 });
 

@@ -5,10 +5,10 @@ include('partials/header.php');
 
 // Se o método POST[action], para salvar, for setado, vai salvar um novo registro
 if (isset($_POST['action'])) {
-  require('C:/xampp/htdocs/Reposit_GIT/megaTriunfo/Projeto/private/php/deckAdd.php');
+  require('C:/xampp/htdocs/Reposit_GIT/Mega-Triunfo/Projeto/private/php/deckAdd.php');
 }
 
-require('C:/xampp/htdocs/Reposit_GIT/megaTriunfo/Projeto/private/php/deckEdit.php');
+require('C:/xampp/htdocs/Reposit_GIT/Mega-Triunfo/Projeto/private/php/deckEdit.php');
 
 ?>
 
@@ -85,7 +85,9 @@ require('C:/xampp/htdocs/Reposit_GIT/megaTriunfo/Projeto/private/php/deckEdit.ph
           <!--Recebe o caminho da foto para enviar via POST-->
           <input type='text' id='deckPhoto' name='deckPhoto' style='display: none;' value='teste foto'>
           <!--Conversão da variável PHP em JS -->
-          <script>var $PHPEditArray = <?php echo $jsDeckQuery; ?>; </script>
+          <script>
+            var $PHPEditArray = <?php echo $jsDeckQuery; ?>;
+          </script>
           </input>
         </form>
       </div>
@@ -101,7 +103,7 @@ require('C:/xampp/htdocs/Reposit_GIT/megaTriunfo/Projeto/private/php/deckEdit.ph
               </tr>
             </thead>
             <tbody>
-              <?php include 'C:/xampp/htdocs/Reposit_GIT/megaTriunfo/Projeto/private/php/deckSelect.php'; ?>
+              <?php include 'C:/xampp/htdocs/Reposit_GIT/Mega-Triunfo/Projeto/private/php/deckSelect.php'; ?>
             </tbody>
           </table>
         </div>

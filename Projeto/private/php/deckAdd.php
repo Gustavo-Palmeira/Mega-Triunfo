@@ -1,6 +1,6 @@
 <?php
 
-require 'C:/xampp/htdocs/Reposit_GIT/megaTriunfo/Projeto/private/php/database/db.php';
+require 'C:/xampp/htdocs/Reposit_GIT/Mega-Triunfo/Projeto/private/php/database/db.php';
 
 //Se o método GET[idForEdit] estiver setado, ele fará um UPDATE conforme o ID passado, caso contrário fara um INSERT
 if (isset($_GET['idForEdit'])) {
@@ -14,8 +14,7 @@ if (isset($_GET['idForEdit'])) {
                                            deckPhoto = CAST (:deckPhotoBind AS VARBINARY)
                                            WHERE deckId = :deckIdBind;");
 
-    $dbQuery->bindValue(':deckIdBind',$_GET['idForEdit']); 
-
+    $dbQuery->bindValue(':deckIdBind', $_GET['idForEdit']);
 } else {
 
     $dbQuery = $database->prepare("INSERT INTO deck (

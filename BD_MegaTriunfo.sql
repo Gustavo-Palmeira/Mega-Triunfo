@@ -1,8 +1,8 @@
-CREATE DATABASE BD_MegaTriunfo;
+CREATE DATABASE BD_Mega-Triunfo;
 
 GO
 
-USE BD_MegaTriunfo;
+USE BD_Mega-Triunfo;
 
 CREATE TABLE deck (
 	deckId BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1),
