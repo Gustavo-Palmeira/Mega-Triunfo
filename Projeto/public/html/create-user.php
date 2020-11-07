@@ -1,10 +1,10 @@
-<?php include('partials/head.php') ?>
+<?php include($_SERVER['DOCUMENT_ROOT'].'/Mega-Triunfo/projeto/public/html/partials/head.php') ?>
 
 <body>
   <div class="container d-flex justify-content-center align-items-center vh-100">
     <div class="row">
       <div class="col-12 mx-auto text-center bg-white" id="box-border">
-        <form id="box-form" action="create-user.php">
+        <form id="box-form" action="../../private/php/create-user-bd.php">
           <h1 class="text-uppercase h2"> Criar Conta </h1>
           <label class="mt-3 mb-0" for=""> Usuário </label>
           <div class="input-border mt-0">
@@ -19,8 +19,7 @@
           <label class="mb-0" for=""> Senha </label>
           <div class="input-border mt-0">
             <input class="input-style input-invisible password-type" type="password">
-            <img class="icon-style icon-eye-style ml-4" src="../img/icons/eye.svg" alt="Ícone senha"
-              onclick="changePassword()">
+            <img class="icon-style icon-eye-style ml-4" src="../img/icons/eye.svg" alt="Ícone senha" onclick="changePassword()">
           </div>
           <label class="mb-0" for=""> Confirmar Senha </label>
           <div class="input-border mt-0">
