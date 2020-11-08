@@ -14,6 +14,13 @@ let DOMStrings = {
   deckAtt3: '#attribute3',
   deckAtt4: '#attribute4',
   deckPhoto: '#deckPhoto',
+  deckPhotoFileInput: '#deckImage',
+  deckPhotolbl: '#deckImagelbl',
+  deckImageView : '#deckImageView',
+  // BOTÕES
+  newDeckbtn: '#btn-new-deck',
+  deleteDeckbtn: '#btn-delete-deck',
+  saveDeckbtn: '#btn-save-deck'
 }
 
 function changePasswordIndex() {
@@ -55,15 +62,57 @@ DOMStrings.editIconsList.forEach(element => {
   });
 });
 
+// NOTA: Transformar em função - Ao clique que "Novo baralho", reseta a página
+document.querySelector(DOMStrings.newDeckbtn).addEventListener('click', function () {
+  window.location.href = "http://localhost/Reposit_GIT/Mega-Triunfo/Projeto/public/html/create-deck.php";
+});
+
+// NOTA: Transformar em função - Alert para salvamento (adição ou edição) de novos baralhos 
+document.querySelector(DOMStrings.saveDeckbtn).addEventListener('click', function () {
+  if (window.location.href.includes('?idForEdit=')) {
+    alert('Baralho alterado!');
+  } else {
+    alert('Baralho salvo!')
+  }
+});
+
+// NOTA: Transformar em função - Alert para confirmação de exclusão de baralho
+document.querySelector(DOMStrings.deleteDeckbtn).addEventListener('click', function () {
+  if (window.location.href.includes('?idForEdit=')) {
+    confirm ('Deseja deletar o baralho e suas cartas? Não é possível recuperá-los.');
+    alert('Baralho deletado!');
+  } else {
+    alert('É necessário selecionar um baralho para deletar.')
+  }
+});
+
+// NOTA: Transformar em função - Alterando o label e a prévia da imagem quando uma imagem for carregada
+document.querySelector(DOMStrings.deckPhotoFileInput).addEventListener('change', function () {
+
+  document.querySelector(DOMStrings.deckPhotolbl).textContent = document.querySelector(DOMStrings.deckPhotoFileInput).value;
+  readURL(document.querySelector(DOMStrings.deckPhotoFileInput));
+});
+
+function readURL(input) {
+  if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+          document.querySelector(DOMStrings.deckImageView).src = e.target.result;
+      }  
+      reader.readAsDataURL(input.files[0]);
+  }
+}
+
 // Função para atualizar os campos do item selecionado com o array que veio da consulta PHP
 function updateInputsForDeckEdit() {
-  document.querySelector(DOMStrings.deckName).value = $PHPEditArray[0]['Name'];
-  document.querySelector(DOMStrings.deckAtt1).value = $PHPEditArray[0]['Attribute1'];
-  document.querySelector(DOMStrings.deckAtt2).value = $PHPEditArray[0]['Attribute2'];
-  document.querySelector(DOMStrings.deckAtt3).value = $PHPEditArray[0]['Attribute3'];
-  document.querySelector(DOMStrings.deckAtt4).value = $PHPEditArray[0]['Attribute4'];
-  document.querySelector(DOMStrings.deckPhoto).value = $PHPEditArray[0]['Photo'];
+  if (window.$PHPEditArray) {
+    document.querySelector(DOMStrings.deckName).value = $PHPEditArray[0]['Name'];
+    document.querySelector(DOMStrings.deckAtt1).value = $PHPEditArray[0]['Attribute1'];
+    document.querySelector(DOMStrings.deckAtt2).value = $PHPEditArray[0]['Attribute2'];
+    document.querySelector(DOMStrings.deckAtt3).value = $PHPEditArray[0]['Attribute3'];
+    document.querySelector(DOMStrings.deckAtt4).value = $PHPEditArray[0]['Attribute4'];
+    document.querySelector(DOMStrings.deckPhoto).value = $PHPEditArray[0]['Photo'];
+  }
 }
 
 updateInputsForDeckEdit();
-

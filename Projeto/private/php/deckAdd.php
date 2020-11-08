@@ -33,6 +33,11 @@ if (isset($_GET['idForEdit'])) {
                                           CAST (:deckPhotoBind AS VARBINARY));");
 }
 
+/* INSERÇÃO DE IMAGEM NO BD
+INSERT INTO deck (deckName, deckAtt1Name, deckAtt2Name, deckAtt3Name, deckAtt4Name, deckPhoto) 
+SELECT 'Teste 3', 'Att1', 'Att2', 'Att3', 'Att4', BulkColumn FROM OPENROWSET(BULK N'D:\nOSTRA.jpg', SINGLE_BLOB) image;
+ */
+
 $dbQuery->bindValue(':deckNameBind', $_POST['name']);
 $dbQuery->bindValue(':deckAtt1NameBind', $_POST['attribute1']);
 $dbQuery->bindValue(':deckAtt2NameBind', $_POST['attribute2']);
