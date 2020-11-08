@@ -151,6 +151,11 @@ body {
   max-width: 35vw;
 }
 
+.custom-file {
+  overflow: hidden !important;
+  white-space: nowrap !important;
+}
+
 /* FORM */
 
 .input-form {

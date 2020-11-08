@@ -4,11 +4,14 @@ include('partials/head.php');
 include('partials/header.php');
 
 // Se o método POST[action], para salvar, for setado, vai salvar um novo registro
-if (isset($_POST['action'])) {
+if (isset($_POST['action']) && $_POST['action'] === 'Salvar') {
   require('C:/xampp/htdocs/Reposit_GIT/Mega-Triunfo/Projeto/private/php/deckAdd.php');
+} else if (isset($_POST['action']) && $_POST['action'] === 'Excluir' && isset($_GET['idForEdit'])) {
+  require('C:/xampp/htdocs/Reposit_GIT/Mega-Triunfo/Projeto/private/php/deckDelete.php');
 }
 
 require('C:/xampp/htdocs/Reposit_GIT/Mega-Triunfo/Projeto/private/php/deckEdit.php');
+
 
 ?>
 
@@ -18,12 +21,12 @@ require('C:/xampp/htdocs/Reposit_GIT/Mega-Triunfo/Projeto/private/php/deckEdit.p
     <div class='row bg-white container-shadow container-size'>
       <div class='col-3 container-card d-flex align-items-center vh-80'>
         <div class='container d-flex flex-wrap justify-content-center'>
-          <img src='https://via.placeholder.com/300x400' class='img-fluid mt-4 d-block'>
+          <img src='https://via.placeholder.com/300x400' class='img-fluid mt-4 d-block' id='deckImageView'>
 
           <div class="input-group image-container mb-4">
-            <div class="custom-file ">
-              <input type="file" class="custom-file-input" id="cardImage">
-              <label class="custom-file-label text-left" for="cardImage">Escolher foto</label>
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="deckImage">
+              <label class="custom-file-label text-left" for="deckImage" id='deckImagelbl'>Escolher foto</label>
             </div>
           </div>
 
@@ -86,7 +89,8 @@ require('C:/xampp/htdocs/Reposit_GIT/Mega-Triunfo/Projeto/private/php/deckEdit.p
           <input type='text' id='deckPhoto' name='deckPhoto' style='display: none;' value='teste foto'>
           <!--Conversão da variável PHP em JS -->
           <script>
-            var $PHPEditArray = <?php echo $jsDeckQuery; ?>;
+            var $PHPEditArray = '';
+            $PHPEditArray = <?php echo $jsDeckQuery; ?>;
           </script>
           </input>
         </form>

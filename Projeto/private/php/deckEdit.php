@@ -2,7 +2,6 @@
 
 require 'C:/xampp/htdocs/Reposit_GIT/Mega-Triunfo/Projeto/private/php/database/db.php';
 
-//Se o método GET[idForEdit] estiver setado, ele fará a consulta no banco conforme o ID passado
 if (isset($_GET['idForEdit'])) {
 
     $dbQuery = $database->prepare("SELECT deckId, 
