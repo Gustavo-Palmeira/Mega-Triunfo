@@ -1,6 +1,6 @@
 <?php
 
-require 'C:/xampp/htdocs/Reposit_GIT/Mega-Triunfo/Projeto/private/php/database/db.php';
+require $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/database/db.php";
 
 if (isset($_GET['idForEdit'])) {
 

@@ -1,4 +1,4 @@
-<?php include('./public/html/partials/indexHead.php'); ?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/public/html/partials/indexHead.php"; ?>
 
 <body>
   <div class="container d-flex justify-content-center align-items-center vh-100">

@@ -1,6 +1,6 @@
 <?php
 
-require 'C:/xampp/htdocs/Reposit_GIT/Mega-Triunfo/Projeto/private/php/database/db.php';
+require $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/database/db.php";
 
 //Se o método GET[idForEdit] estiver setado, ele fará um UPDATE conforme o ID passado, caso contrário fara um INSERT
 if (isset($_GET['idForEdit'])) {

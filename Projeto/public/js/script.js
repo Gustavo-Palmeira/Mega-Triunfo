@@ -23,6 +23,7 @@ let DOMStrings = {
   saveDeckbtn: '#btn-save-deck'
 }
 
+// Função troca visibilidade da senha
 function changePasswordIndex() {
   let eye = document.querySelector('.icon-eye-style').getAttribute('src');
   let password = document.querySelector('.password-type').type;
@@ -32,6 +33,19 @@ function changePasswordIndex() {
     document.querySelector('.password-type').type = "text";
   } else {
     document.querySelector('.icon-eye-style').src = "./public/img/icons/eye.svg";
+    document.querySelector('.password-type').type = "password";
+  };
+};
+
+function changePasswordPrivate() {
+  let eye = document.querySelector('.icon-eye-style').getAttribute('src');
+  let password = document.querySelector('.password-type').type;
+
+  if (eye === "../../public/img/icons/eye.svg" && password === "password") {
+    document.querySelector('.icon-eye-style').src = "../../public/img/icons/hide-eye.svg";
+    document.querySelector('.password-type').type = "text";
+  } else {
+    document.querySelector('.icon-eye-style').src = "../../public/img/icons/eye.svg";
     document.querySelector('.password-type').type = "password";
   };
 };
@@ -58,13 +72,13 @@ document.querySelector(DOMStrings.cardDecklist).addEventListener('scroll', funct
 // NOTA: Transformar em função - Para cada elemento do tipo "ícone de edição", adicionar uma função ao clique que redireciona para a mesma página, porém setando o método GET com o ID do item clicado
 DOMStrings.editIconsList.forEach(element => {
   element.addEventListener('click', function () {
-    window.location.href = "http://localhost/Reposit_GIT/Mega-Triunfo/Projeto/public/html/create-deck.php?idForEdit=" + parseInt(element.getAttribute('name'));
+    window.location.href = "/Mega-Triunfo/Projeto/public/html/create-deck.php?idForEdit=" + parseInt(element.getAttribute('name'));
   });
 });
 
 // NOTA: Transformar em função - Ao clique que "Novo baralho", reseta a página
 document.querySelector(DOMStrings.newDeckbtn).addEventListener('click', function () {
-  window.location.href = "http://localhost/Reposit_GIT/Mega-Triunfo/Projeto/public/html/create-deck.php";
+  window.location.href = "/Mega-Triunfo/Projeto/public/html/create-deck.php";
 });
 
 // NOTA: Transformar em função - Alert para salvamento (adição ou edição) de novos baralhos 

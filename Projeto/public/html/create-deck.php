@@ -1,16 +1,16 @@
 <?php
 
-include('partials/head.php');
-include('partials/header.php');
+require $_SERVER['DOCUMENT_ROOT'] . '/Mega-Triunfo/Projeto/public/html/partials/head.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/Mega-Triunfo/Projeto/public/html/partials/header.php';
 
 // Se o método POST[action], para salvar, for setado, vai salvar um novo registro
 if (isset($_POST['action']) && $_POST['action'] === 'Salvar') {
-  require('C:/xampp/htdocs/Reposit_GIT/Mega-Triunfo/Projeto/private/php/deckAdd.php');
+  require $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/deckAdd.php";
 } else if (isset($_POST['action']) && $_POST['action'] === 'Excluir' && isset($_GET['idForEdit'])) {
-  require('C:/xampp/htdocs/Reposit_GIT/Mega-Triunfo/Projeto/private/php/deckDelete.php');
+  require $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/deckDelete.php";
 }
 
-require('C:/xampp/htdocs/Reposit_GIT/Mega-Triunfo/Projeto/private/php/deckEdit.php');
+require $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/deckEdit.php";
 
 
 ?>
@@ -107,7 +107,7 @@ require('C:/xampp/htdocs/Reposit_GIT/Mega-Triunfo/Projeto/private/php/deckEdit.p
               </tr>
             </thead>
             <tbody>
-              <?php include 'C:/xampp/htdocs/Reposit_GIT/Mega-Triunfo/Projeto/private/php/deckSelect.php'; ?>
+              <?php require $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/deckSelect.php"; ?>
             </tbody>
           </table>
         </div>

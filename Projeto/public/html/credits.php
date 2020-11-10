@@ -1,6 +1,6 @@
-<?php include('partials/head.php') ?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/public/html/partials/head.php"; ?>
 
-<?php include('partials/header.php') ?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/public/html/partials/header.php"; ?>
 
 <body class='d-flex flex-column vh-100 align-content-center justify-content-around text-center'>
 

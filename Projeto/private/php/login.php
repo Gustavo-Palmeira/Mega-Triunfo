@@ -1,12 +1,12 @@
 <?php
 
-ini_set('display_errors', 0);
+/* ini_set('display_errors', 0);
 ini_set('display_startup_errors', 0);
-error_reporting(E_ALL);
+error_reporting(E_ALL); */
 
 session_start();
 
-require_once "database/db.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/database/db.php";
 
 //var_dump(isset($_POST['startLogin']));
 
@@ -28,10 +28,8 @@ if (isset($_POST['startLogin'])) {
   if (password_verify($password, $hash)) {
 
     $_SESSION['login'] = $login;
-    include($_SERVER['DOCUMENT_ROOT'] . '/Mega-Triunfo/Projeto/public/html/partials/privateHead.php');
-
-    // QUANDO EU CHAMO O CREATE_DECK DÁ ERRADO, O CREATE CARD DÁ CERTO
-    include($_SERVER['DOCUMENT_ROOT'] . '/Mega-Triunfo/Projeto/public/html/create-card.php');
+    include $_SERVER['DOCUMENT_ROOT'] . '/Mega-Triunfo/Projeto/public/html/partials/privateHead.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/Mega-Triunfo/Projeto/public/html/start-game.php';
 
   } else {
     header('Location: ../../index.php?msg=Credenciais inválidas');

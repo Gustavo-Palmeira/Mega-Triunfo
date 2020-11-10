@@ -316,3 +316,11 @@ Cor da scrollbar
   top: 0px;
   left: 0px;
 }
+
+.h-98 {
+  height: 98%!important;
+}
+
+.overflow-start {
+  overflow-y: hidden;
+}
