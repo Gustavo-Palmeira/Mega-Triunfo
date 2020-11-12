@@ -21,14 +21,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/deckEdit.
     <div class='row bg-white container-shadow container-size'>
       <div class='col-3 container-card d-flex align-items-center vh-80'>
         <div class='container d-flex flex-wrap justify-content-center'>
-          <img src='https://via.placeholder.com/300x400' class='img-fluid mt-4 d-block' id='deckImageView'>
-
-          <div class="input-group image-container mb-4">
-            <div class="custom-file">
-              <input type="file" class="custom-file-input" id="deckImage">
-              <label class="custom-file-label text-left" for="deckImage" id='deckImagelbl'>Escolher foto</label>
-            </div>
-          </div>
+          <img src='https://via.placeholder.com/300x400' class='img-fluid mt-4 d-block mb-4' id='deckImageView'>
 
           <button id='btn-new-deck' class='manage-card-buttons'>
             Novo Baralho
@@ -46,9 +39,16 @@ require $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/deckEdit.
       <div class='col-6 d-flex flex-wrap align-content-center justify-content-center container-card'>
         <h1 class='h2 mb-5'>Cadastro de Baralho</h1>
 
-        <form class='row mx-auto' id='create-deck-form' method="POST" action=''>
+        <form class='row mx-auto' id='create-deck-form' method="POST" action='' enctype='multipart/form-data'>
 
-          <div class='col-8 mt-3 mx-auto text-center'>
+        <div class="col-8 input-group image-container m-2 mx-auto">
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="deckImage" name ='deckImage' accept='.png, .jpg, .jpeg'>
+              <label class="custom-file-label text-left" for="deckImage" id='deckImagelbl'>Escolher foto</label>
+            </div>
+          </div>
+
+          <div class='col-10 mt-3 mx-auto text-center'>
             <label for='name' class='d-block'>Nome</label>
             <input type='text' id='name' name='name' class='input-form' required>
           </div>
@@ -74,6 +74,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/deckEdit.
           </div>
 
 
+
           <div class='card-buttons d-flex mx-auto mt-5'>
             <button type='submit' id='btn-save-deck' name="action" value="Salvar" class='m-2 manage-card-buttons'>
               <i class="fas fa-save"></i>
@@ -85,8 +86,6 @@ require $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/deckEdit.
               <span class='manage-card-buttons-border'></span>
             </button>
           </div>
-          <!--Recebe o caminho da foto para enviar via POST-->
-          <input type='text' id='deckPhoto' name='deckPhoto' style='display: none;' value='teste foto'>
           <!--Conversão da variável PHP em JS -->
           <script>
             var $PHPEditArray = '';

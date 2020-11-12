@@ -16,7 +16,8 @@ let DOMStrings = {
   deckPhoto: '#deckPhoto',
   deckPhotoFileInput: '#deckImage',
   deckPhotolbl: '#deckImagelbl',
-  deckImageView : '#deckImageView',
+  deckImageView: '#deckImageView',
+  deckPhotoPOST: '#deckPhotoPOST',
   // BOTÕES
   newDeckbtn: '#btn-new-deck',
   deleteDeckbtn: '#btn-delete-deck',
@@ -103,6 +104,11 @@ document.querySelector(DOMStrings.deleteDeckbtn).addEventListener('click', funct
 // NOTA: Transformar em função - Alterando o label e a prévia da imagem quando uma imagem for carregada
 document.querySelector(DOMStrings.deckPhotoFileInput).addEventListener('change', function () {
 
+  if (this.files[0].size > 5242880) {
+    alert('Tamanho máximo excedido (5 MB).');
+    this.value = '';
+  }
+
   document.querySelector(DOMStrings.deckPhotolbl).textContent = document.querySelector(DOMStrings.deckPhotoFileInput).value;
   readURL(document.querySelector(DOMStrings.deckPhotoFileInput));
 });
@@ -125,7 +131,7 @@ function updateInputsForDeckEdit() {
     document.querySelector(DOMStrings.deckAtt2).value = $PHPEditArray[0]['Attribute2'];
     document.querySelector(DOMStrings.deckAtt3).value = $PHPEditArray[0]['Attribute3'];
     document.querySelector(DOMStrings.deckAtt4).value = $PHPEditArray[0]['Attribute4'];
-    document.querySelector(DOMStrings.deckPhoto).value = $PHPEditArray[0]['Photo'];
+    document.querySelector(DOMStrings.deckImageView).src = $PHPEditArray[0]['Photo'];
   }
 }
 
