@@ -25,14 +25,14 @@
       <div class='col-6 d-flex flex-wrap align-content-center justify-content-center container-card '>
         <h1 class='h2 mb-5'>Cadastro de Carta</h1>
 
-        <div class="input-group image-container m-2">
+        <form class='row mx-auto' id='create-card-form'>
+
+        <div class="col-10 input-group image-container m-2 mx-auto">
           <div class="custom-file ">
             <input type="file" class="custom-file-input" id="cardImage">
             <label class="custom-file-label" for="cardImage">Escolher foto da carta</label>
           </div>
         </div>
-
-        <form class='row mx-auto' id='create-card-form'>
 
           <div class='col-6 mt-3 text-center'>
             <label for='name' class='d-block'>Nome</label>
@@ -64,6 +64,7 @@
             <input type='text' id='specialAttribute' name='specialAttribute' class='input-form input-special-attribute'>
             <input type='text' id='specialAttribute' name='specialAttribute' class='input-form input-special-value'>
           </div>
+
           <div class='card-buttons d-flex mx-auto mt-5'>
             <button type='submit' id='btn-save-card' name="action" value="Salvar" class='m-2 manage-card-buttons'>
               <i class="fas fa-save"></i>
