@@ -3,15 +3,7 @@
 require $_SERVER['DOCUMENT_ROOT'] . '/Mega-Triunfo/Projeto/public/html/partials/head.php';
 require $_SERVER['DOCUMENT_ROOT'] . '/Mega-Triunfo/Projeto/public/html/partials/header.php';
 
-// Se o método POST[action], para salvar, for setado, vai salvar um novo registro
-if (isset($_POST['action']) && $_POST['action'] === 'Salvar') {
-  require $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/deckAdd.php";
-} else if (isset($_POST['action']) && $_POST['action'] === 'Excluir' && isset($_GET['idForEdit'])) {
-  require $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/deckDelete.php";
-}
-
-require $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/deckEdit.php";
-
+include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/deckManage.php";
 
 ?>
 

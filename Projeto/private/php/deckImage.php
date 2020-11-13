@@ -23,8 +23,15 @@
         $uploadOK = 0;
     }
 
-    // Checando se a imagem já existe na pasta destino e substituindo
-    if (file_exists($targetFile)) unlink($targetFile);
+    // Checando se a imagem já existe na pasta destino e substituindo-a, independente de sua extensão de arquivo
+    $arrayTypes = [
+        0 => '.jpg',
+        1 => '.jpeg',
+        2 => '.png'];
+    
+    foreach ($arrayTypes as $reg) {
+        if (file_exists($targetDirectory.$deckCoverName.$reg)) unlink($targetDirectory.$deckCoverName.$reg);
+    }
 
     // Checando se o tamanho está dentro do permitido
     if ($_FILES['deckImage']['size'] > 5000000) {
