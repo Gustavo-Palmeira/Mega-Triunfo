@@ -38,6 +38,7 @@ if (isset($_POST['action']) && $_POST['action'] === 'Salvar') {
         } else {
 
             include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/deckImage.php";
+            $queryParam = 'ok';
         }
 
         $dbQuery = $database->prepare("INSERT INTO deck (

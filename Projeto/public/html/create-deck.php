@@ -21,7 +21,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/deckManag
           </button>
 
           <button id='btn-add-card' class='manage-card-buttons mb-4 mt-3'>
-            Adicionar Carta
+            Gerenciar Cartas
             <span class='manage-card-buttons-border'></span>
           </button>
 
@@ -42,27 +42,27 @@ include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/deckManag
 
           <div class='col-10 mt-3 mx-auto text-center'>
             <label for='name' class='d-block'>Nome</label>
-            <input type='text' id='name' name='name' class='input-form' required>
+            <input type='text' id='deckname' name='name' class='input-form' required>
           </div>
 
           <div class='col-6 mt-4 text-center'>
             <label for='attribute1' class='d-block'>Nome do Atributo 1</label>
-            <input type='text' id='attribute1' name='attribute1' class='input-form' required>
+            <input type='text' id='deckattribute1' name='attribute1' class='input-form' required>
           </div>
 
           <div class='col-6 mt-4 text-center'>
             <label for='attribute2' class='d-block'>Nome do Atributo 2</label>
-            <input type='text' id='attribute2' name='attribute2' class='input-form' required>
+            <input type='text' id='deckattribute2' name='attribute2' class='input-form' required>
           </div>
 
           <div class='col-6 mt-3 text-center'>
             <label for='attribute3' class='d-block'>Nome do Atributo 3</label>
-            <input type='text' id='attribute3' name='attribute3' class='input-form' required>
+            <input type='text' id='deckattribute3' name='attribute3' class='input-form' required>
           </div>
 
           <div class='col-6 mt-3 text-center'>
             <label for='attribute4' class='d-block'>Nome do Atributo 4</label>
-            <input type='text' id='attribute4' name='attribute4' class='input-form' required>
+            <input type='text' id='deckattribute4' name='attribute4' class='input-form' required>
           </div>
 
 
@@ -83,7 +83,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/deckManag
             var $PHPEditArray = '';
             $PHPEditArray = <?php echo $jsDeckQuery; ?>;
           </script>
-          </input>
+          
         </form>
       </div>
 
@@ -92,7 +92,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/deckManag
           <table class='table table-sm table-hover table-bordered'>
             <thead class='thead-color'>
               <tr class='table-fixed-header'>
-                <th scope='col table-fixed-header'>Baralho</th>
+                <th scope='col table-fixed-header'>Baralhos</th>
                 <th scope='col table-fixed-header'>Cartas</th>
                 <th scope='col'><i class='fas fa-tasks'></i></i></th>
               </tr>
