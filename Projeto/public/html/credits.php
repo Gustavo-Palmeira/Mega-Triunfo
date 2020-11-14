@@ -24,45 +24,60 @@
         <div class="row mt-3 col-12">
           <div class="col-4">
             <button class='manage-card-buttons-dev mt-3'>
-              <img class="icon-style-dev" src="../img/icons/linkedin.svg" alt="Ícone e-mail">
-              <span class='manage-card-buttons-border-dev'></span>
+              <a href="https://www.linkedin.com/in/arthurescalera/" target="_blank">
+                <img class="icon-style-dev" src="../img/icons/linkedin.svg" alt="Ícone e-mail">
+                <span class='manage-card-buttons-border-dev'></span>
+              </a>
             </button>
             <button class='manage-card-buttons-dev mt-3 ml-1'>
-              <img class="icon-style-dev" src="../img/icons/github.svg" alt="Ícone e-mail">
-              <span class='manage-card-buttons-border-dev'></span>
+              <a href="https://github.com/arthuresc" target="_blank">
+                <img class="icon-style-dev" src="../img/icons/github.svg" alt="Ícone e-mail">
+                <span class='manage-card-buttons-border-dev'></span>
+              </a>
             </button>
-            <button class='manage-card-buttons-dev mt-3 ml-1'>
+            <!-- Adicionar caso tenha portifólio -->
+            <!-- <button class='manage-card-buttons-dev mt-3 ml-1'>
               <img class="icon-style-dev" src="../img/icons/pasta.svg" alt="Ícone e-mail">
-              <span class='manage-card-buttons-border-dev'></span>
-            </button>
+              <span class='manage-card-buttons-border-dev'></span> 
+            </button> -->
           </div>
           <div class="col-4">
             <button class='manage-card-buttons-dev mt-3'>
-              <img class="icon-style-dev" src="../img/icons/linkedin.svg" alt="Ícone e-mail">
-              <span class='manage-card-buttons-border-dev'></span>
+              <a href="https://www.linkedin.com/in/gabsato02/" target="_blank">
+                <img class="icon-style-dev" src="../img/icons/linkedin.svg" alt="Ícone e-mail">
+                <span class='manage-card-buttons-border-dev'></span>
+              </a>
             </button>
             <button class='manage-card-buttons-dev mt-3 ml-1'>
-              <img class="icon-style-dev" src="../img/icons/github.svg" alt="Ícone e-mail">
-              <span class='manage-card-buttons-border-dev'></span>
+              <a href="https://github.com/Gabsato02" target="_blank">
+                <img class="icon-style-dev" src="../img/icons/github.svg" alt="Ícone e-mail">
+                <span class='manage-card-buttons-border-dev'></span>
+              </a>
             </button>
-            <button class='manage-card-buttons-dev mt-3 ml-1'>
+            <!-- Adicionar caso tenha portifólio -->
+            <!-- <button class='manage-card-buttons-dev mt-3 ml-1'>
               <img class="icon-style-dev" src="../img/icons/pasta.svg" alt="Ícone e-mail">
               <span class='manage-card-buttons-border-dev'></span>
-            </button>
+            </button> -->
           </div>
           <div class="col-4">
             <button class='manage-card-buttons-dev mt-3'>
-              <img class="icon-style-dev" src="../img/icons/linkedin.svg" alt="Ícone e-mail">
-              <span class='manage-card-buttons-border-dev'></span>
+              <a href="https://www.linkedin.com/in/gustavo-palmeira-pinto/" target="_blank">
+                <img class="icon-style-dev" src="../img/icons/linkedin.svg" alt="Ícone e-mail">
+                <span class='manage-card-buttons-border-dev'></span>
+              </a>
             </button>
             <button class='manage-card-buttons-dev mt-3 ml-1'>
-              <img class="icon-style-dev" src="../img/icons/github.svg" alt="Ícone e-mail">
-              <span class='manage-card-buttons-border-dev'></span>
+              <a href="https://github.com/Gustavo-Palmeira" target="_blank">
+                <img class="icon-style-dev" src="../img/icons/github.svg" alt="Ícone e-mail">
+                <span class='manage-card-buttons-border-dev'></span>
+              </a>
             </button>
-            <button class='manage-card-buttons-dev mt-3 ml-1'>
+            <!-- Adicionar caso tenha portifólio -->
+            <!-- <button class='manage-card-buttons-dev mt-3 ml-1'>
               <img class="icon-style-dev" src="../img/icons/pasta.svg" alt="Ícone e-mail">
               <span class='manage-card-buttons-border-dev'></span>
-            </button>
+            </button> -->
           </div>
           <div>
 

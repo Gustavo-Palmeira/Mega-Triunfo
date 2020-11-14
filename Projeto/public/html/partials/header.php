@@ -5,6 +5,7 @@
       <a class="navbar-brand nav-link text-uppercase text-light" href="/Mega-Triunfo/Projeto/public/html/create-deck.php">Configurações</a>
       <a class="navbar-brand nav-link text-uppercase text-light" href="#">Perfil</a>
       <a class="navbar-brand nav-link text-uppercase text-light" href="/Mega-Triunfo/Projeto/public/html/credits.php">Créditos</a>
+      <a class="navbar-brand nav-link text-uppercase text-light" href="/Mega-Triunfo/Projeto/private/php/sessionDestroy.php">Sair</a>
     </div>
   </nav>
 </header>

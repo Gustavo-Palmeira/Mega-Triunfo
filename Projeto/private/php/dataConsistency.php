@@ -34,7 +34,7 @@ function existingEmail(string $emailForm): bool
 
   $register = $stmt->fetch();
 
-  return is_numeric($register['userId']) ? true : false;
+  return is_array($register) ? true : false;
 }
 
 
@@ -52,13 +52,14 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
 // Verifica se a senha possui mais que 8 caracteres
 if (strlen($passwordForm) < 8) {
-  $erros[] = "A senha deve contém pelo menos 8 caracteres";
+  $erros[] = "A senha deve conter 8 caracteres ou mais";
 } else if ($passwordForm != $passwordConf) {
-  $erros[] = "As senhas não são iguais";
+  $erros[] = "As senhas não são idênticas";
 }
 
-//var_dump($erros == NULL);
+/* //var_dump($erros == NULL);
 
-if ($erros == NULL) {
+if (is_null($erros)) {
   include $_SERVER['DOCUMENT_ROOT'] . '/Mega-Triunfo/projeto/private/php/createUserSucsess.php';
 }
+ */
