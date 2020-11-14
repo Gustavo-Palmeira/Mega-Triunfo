@@ -1,6 +1,11 @@
-<?php include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/public/html/partials/head.php"; ?>
+<?php
 
-<?php include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/public/html/partials/header.php"; ?>
+require $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/public/html/partials/head.php";
+require $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/public/html/partials/header.php";
+
+include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/cardManage.php";
+
+?>
 
 <body class='d-flex flex-column vh-100 align-content-center justify-content-around text-center'>
 
@@ -27,42 +32,49 @@
 
         <form class='row mx-auto' id='create-card-form'>
 
-        <div class="col-10 input-group image-container m-2 mx-auto">
-          <div class="custom-file ">
-            <input type="file" class="custom-file-input" id="cardImage">
-            <label class="custom-file-label" for="cardImage">Escolher foto da carta</label>
+          <div class="col-10 input-group image-container m-2 mx-auto">
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="cardImage">
+              <label class="custom-file-label" for="cardImage">Escolher foto da carta</label>
+            </div>
           </div>
-        </div>
 
           <div class='col-6 mt-3 text-center'>
             <label for='name' class='d-block'>Nome</label>
-            <input type='text' id='name' name='name' class='input-form'>
+            <input type='text' id='cardname' name='name' class='input-form' required>
           </div>
 
           <div class='col-6 mt-3 text-center'>
             <label for='attribute1' class='d-block'>Valor do Atributo 1</label>
-            <input type='text' id='attribute1' name='attribute1' class='input-form'>
+            <input type='text' id='cardattribute1' name='attribute1' class='input-form' required>
           </div>
 
           <div class='col-6 mt-3 text-center'>
             <label for='attribute2' class='d-block'>Valor do Atributo 2</label>
-            <input type='text' id='attribute2' name='attribute2' class='input-form'>
+            <input type='text' id='cardattribute2' name='attribute2' class='input-form' required>
           </div>
 
           <div class='col-6 mt-3 text-center'>
             <label for='attribute3' class='d-block'>Valor do Atributo 3</label>
-            <input type='text' id='attribute3' name='attribute3' class='input-form'>
+            <input type='text' id='cardattribute3' name='attribute3' class='input-form' required>
           </div>
 
           <div class='col-6 mt-3 text-center'>
             <label for='attribute4' class='d-block'>Valor do Atributo 4</label>
-            <input type='text' id='attribute4' name='attribute4' class='input-form'>
+            <input type='text' id='cardattribute4' name='attribute4' class='input-form' required>
           </div>
 
           <div class='col-6 mt-3 text-center'>
-            <label for='specialAttribute' class='d-block'>Valor do Atributo Especial</label>
-            <input type='text' id='specialAttribute' name='specialAttribute' class='input-form input-special-attribute'>
-            <input type='text' id='specialAttribute' name='specialAttribute' class='input-form input-special-value'>
+            <label for='specialAttribute' class='d-block'>Atributo Especial</label>
+            <input type='text' id='specialAttributeName' name='specialAttribute' class='input-form input-special-attribute' placeholder='Nome'>
+            <input type='text' id='specialAttributeValue' name='specialAttribute' class='input-form input-special-value' placeholder='Val'>
+            <select id='specialAttributeRef' name='specialAttribute' class='input-form input-special-value'>
+              <option value='X'>X</option>
+              <option value='1'>1</option>
+              <option value='2'>2</option>
+              <option value='3'>3</option>
+              <option value='4'>4</option>
+            </select>
           </div>
 
           <div class='card-buttons d-flex mx-auto mt-5'>
@@ -76,6 +88,13 @@
               <span class='manage-card-buttons-border'></span>
             </button>
           </div>
+
+          <!--Conversão da variável PHP em JS -->
+          <script>
+            var $PHPEditCardArray = '';
+            $PHPEditCardArray = <?php echo $jsCardQuery; ?>;
+          </script>
+
         </form>
       </div>
 
@@ -84,269 +103,14 @@
           <table class='table table-sm table-hover table-bordered'>
             <thead class='thead-color'>
               <tr class='table-fixed-header'>
-                <th scope='col table-fixed-header'>Cartas (50)</th>
+                <th scope='col table-fixed-header' id='cardCount'>Cartas ()</th>
                 <th scope='col'><i class='fas fa-star text-warning'></i></th>
                 <th scope='col'><i class='fas fa-tasks'></i></i></th>
               </tr>
             </thead>
             <tbody class="noselect">
               <!-- Substituir depois por código PHP que vai atualizar com o banco de dados-->
-              <tr>
-                <td>Bolsonaro Cloroquina</td>
-                <td>100</td>
-                <td>
-                  <i class='far fa-edit'></i>
-                </td>
-              </tr>
-              <tr>
-                <td>Donald Trump Laranja</td>
-                <td>70</td>
-                <td>
-                  <i class='far fa-edit'></i>
-                </td>
-              </tr>
-              <tr>
-                <td>Lula Cachaça</td>
-                <td>80</td>
-                <td>
-                  <i class='far fa-edit'></i>
-                </td>
-              </tr>
-              <tr>
-                <td>Temer Vampiro</td>
-                <td>50</td>
-                <td>
-                  <i class='far fa-edit'></i>
-                </td>
-              </tr>
-
-              <tr>
-                <td>Bolsonaro Cloroquina</td>
-                <td>100</td>
-                <td>
-                  <i class='far fa-edit'></i>
-                </td>
-              </tr>
-              <tr>
-                <td>Donald Trump Laranja</td>
-                <td>70</td>
-                <td>
-                  <i class='far fa-edit'></i>
-                </td>
-              </tr>
-              <tr>
-                <td>Lula Cachaça</td>
-                <td>80</td>
-                <td>
-                  <i class='far fa-edit'></i>
-                </td>
-              </tr>
-              <tr>
-                <td>Temer Vampiro</td>
-                <td>50</td>
-                <td>
-                  <i class='far fa-edit'></i>
-                </td>
-              </tr>
-              <tr>
-                <td>Bolsonaro Cloroquina</td>
-                <td>100</td>
-                <td>
-                  <i class='far fa-edit'></i>
-                </td>
-              </tr>
-              <tr>
-                <td>Donald Trump Laranja</td>
-                <td>70</td>
-                <td>
-                  <i class='far fa-edit'></i>
-                </td>
-              </tr>
-              <tr>
-                <td>Lula Cachaça</td>
-                <td>80</td>
-                <td>
-                  <i class='far fa-edit'></i>
-                </td>
-              </tr>
-              <tr>
-                <td>Temer Vampiro</td>
-                <td>50</td>
-                <td>
-                  <i class='far fa-edit'></i>
-                </td>
-              </tr>
-              <tr>
-                <td>Bolsonaro Cloroquina</td>
-                <td>100</td>
-                <td>
-                  <i class='far fa-edit'></i>
-                </td>
-              </tr>
-              <tr>
-                <td>Donald Trump Laranja</td>
-                <td>70</td>
-                <td>
-                  <i class='far fa-edit'></i>
-                </td>
-              </tr>
-              <tr>
-                <td>Lula Cachaça</td>
-                <td>80</td>
-                <td>
-                  <i class='far fa-edit'></i>
-                </td>
-              </tr>
-              <tr>
-                <td>Temer Vampiro</td>
-                <td>50</td>
-                <td>
-                  <i class='far fa-edit'></i>
-                </td>
-              </tr>
-              <tr>
-                <td>Bolsonaro Cloroquina</td>
-                <td>100</td>
-                <td>
-                  <i class='far fa-edit'></i>
-                </td>
-              </tr>
-              <tr>
-                <td>Donald Trump Laranja</td>
-                <td>70</td>
-                <td>
-                  <i class='far fa-edit'></i>
-                </td>
-              </tr>
-              <tr>
-                <td>Lula Cachaça</td>
-                <td>80</td>
-                <td>
-                  <i class='far fa-edit'></i>
-                </td>
-              </tr>
-              <tr>
-                <td>Temer Vampiro</td>
-                <td>50</td>
-                <td>
-                  <i class='far fa-edit'></i>
-                </td>
-              </tr>
-              <tr>
-                <td>Bolsonaro Cloroquina</td>
-                <td>100</td>
-                <td>
-                  <i class='far fa-edit'></i>
-                </td>
-              </tr>
-              <tr>
-                <td>Donald Trump Laranja</td>
-                <td>70</td>
-                <td>
-                  <i class='far fa-edit'></i>
-                </td>
-              </tr>
-              <tr>
-                <td>Lula Cachaça</td>
-                <td>80</td>
-                <td>
-                  <i class='far fa-edit'></i>
-                </td>
-              </tr>
-              <tr>
-                <td>Temer Vampiro</td>
-                <td>50</td>
-                <td>
-                  <i class='far fa-edit'></i>
-                </td>
-              </tr>
-              <tr>
-                <td>Bolsonaro Cloroquina</td>
-                <td>100</td>
-                <td>
-                  <i class='far fa-edit'></i>
-                </td>
-              </tr>
-              <tr>
-                <td>Donald Trump Laranja</td>
-                <td>70</td>
-                <td>
-                  <i class='far fa-edit'></i>
-                </td>
-              </tr>
-              <tr>
-                <td>Lula Cachaça</td>
-                <td>80</td>
-                <td>
-                  <i class='far fa-edit'></i>
-                </td>
-              </tr>
-              <tr>
-                <td>Temer Vampiro</td>
-                <td>50</td>
-                <td>
-                  <i class='far fa-edit'></i>
-                </td>
-              </tr>
-              <tr>
-                <td>Bolsonaro Cloroquina</td>
-                <td>100</td>
-                <td>
-                  <i class='far fa-edit'></i>
-                </td>
-              </tr>
-              <tr>
-                <td>Donald Trump Laranja</td>
-                <td>70</td>
-                <td>
-                  <i class='far fa-edit'></i>
-                </td>
-              </tr>
-              <tr>
-                <td>Lula Cachaça</td>
-                <td>80</td>
-                <td>
-                  <i class='far fa-edit'></i>
-                </td>
-              </tr>
-              <tr>
-                <td>Temer Vampiro</td>
-                <td>50</td>
-                <td>
-                  <i class='far fa-edit'></i>
-                </td>
-              </tr>
-              <tr>
-                <td>Bolsonaro Cloroquina</td>
-                <td>100</td>
-                <td>
-                  <i class='far fa-edit'></i>
-                </td>
-              </tr>
-              <tr>
-                <td>Donald Trump Laranja</td>
-                <td>70</td>
-                <td>
-                  <i class='far fa-edit'></i>
-                </td>
-              </tr>
-              <tr>
-                <td>Lula Cachaça</td>
-                <td>80</td>
-                <td>
-                  <i class='far fa-edit'></i>
-                </td>
-              </tr>
-              <tr>
-                <td>Temer Vampiro</td>
-                <td>50</td>
-                <td>
-                  <i class='far fa-edit'></i>
-                </td>
-              </tr>
-
-
-
+              <?php require $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/cardSelect.php"; ?>
             </tbody>
           </table>
         </div>
