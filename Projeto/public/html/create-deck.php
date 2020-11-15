@@ -68,12 +68,12 @@ include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/deckManag
 
 
           <div class='card-buttons d-flex mx-auto mt-5'>
-            <button type='submit' id='btn-save-deck' name="action" value="Salvar" class='m-2 manage-card-buttons'>
+            <button type='submit' id='btn-save-deck' name="action" value="Salvar" class='m-2 manage-card-buttons savebtn' onclick='saveButton();'>
               <i class="fas fa-save"></i>
               <span class='manage-card-buttons-border'></span>
             </button>
 
-            <button type='submit' id='btn-delete-deck' name="action" value="Excluir" class='m-2 manage-card-buttons'>
+            <button type='submit' id='btn-delete-deck' name="action" value="Excluir" class='m-2 manage-card-buttons deletebtn' onclick='deleteButton();'>
               <i class="fas fa-trash-alt"></i>
               <span class='manage-card-buttons-border'></span>
             </button>

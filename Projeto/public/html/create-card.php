@@ -30,18 +30,18 @@ include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/cardManag
       <div class='col-6 d-flex flex-wrap align-content-center justify-content-center container-card '>
         <h1 class='h2 mb-5'>Cadastro de Carta</h1>
 
-        <form class='row mx-auto' id='create-card-form'>
+        <form class='row mx-auto' id='create-card-form' method="POST" action='' enctype='multipart/form-data'>
 
           <div class="col-10 input-group image-container m-2 mx-auto">
             <div class="custom-file">
-              <input type="file" class="custom-file-input" id="cardImage">
+              <input type="file" class="custom-file-input" id="cardImage" name="cardImage">
               <label class="custom-file-label" for="cardImage">Escolher foto da carta</label>
             </div>
           </div>
 
           <div class='col-6 mt-3 text-center'>
             <label for='name' class='d-block'>Nome</label>
-            <input type='text' id='cardname' name='name' class='input-form' required>
+            <input type='text' id='cardname' name='cardname' class='input-form' required>
           </div>
 
           <div class='col-6 mt-3 text-center'>
@@ -66,10 +66,10 @@ include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/cardManag
 
           <div class='col-6 mt-3 text-center'>
             <label for='specialAttribute' class='d-block'>Atributo Especial</label>
-            <input type='text' id='specialAttributeName' name='specialAttribute' class='input-form input-special-attribute' placeholder='Nome'>
-            <input type='text' id='specialAttributeValue' name='specialAttribute' class='input-form input-special-value' placeholder='Val'>
-            <select id='specialAttributeRef' name='specialAttribute' class='input-form input-special-value'>
-              <option value='X'>X</option>
+            <input type='text' id='specialAttributeName' name='specialAttributeName' class='input-form input-special-attribute' placeholder='Nome'>
+            <input type='text' id='specialAttributeValue' name='specialAttributeValue' class='input-form input-special-value' placeholder='Val'>
+            <select id='specialAttributeRef' name='specialAttributeRef' class='input-form input-special-value'>
+              <option value=''>X</option>
               <option value='1'>1</option>
               <option value='2'>2</option>
               <option value='3'>3</option>
@@ -78,12 +78,12 @@ include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/cardManag
           </div>
 
           <div class='card-buttons d-flex mx-auto mt-5'>
-            <button type='submit' id='btn-save-card' name="action" value="Salvar" class='m-2 manage-card-buttons'>
+            <button type='submit' id='btn-save-card' name="action" value="Salvar-carta" class='m-2 manage-card-buttons savebtn' onclick='saveButton();'>
               <i class="fas fa-save"></i>
               <span class='manage-card-buttons-border'></span>
             </button>
 
-            <button type='submit' id='btn-delete-card' name="action" value="Excluir" class='m-2 manage-card-buttons'>
+            <button type='submit' id='btn-delete-card' name="action" value="Excluir-carta" class='m-2 manage-card-buttons deletebtn' onclick='deleteButton();'>
               <i class="fas fa-trash-alt"></i>
               <span class='manage-card-buttons-border'></span>
             </button>
