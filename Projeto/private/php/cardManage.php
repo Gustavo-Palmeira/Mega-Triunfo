@@ -2,6 +2,107 @@
 
 require $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/database/db.php";
 
+// Faz o INSERT e o UPDATE das cartas
+if (isset($_POST['action']) && $_POST['action'] === 'Salvar-carta') {
+
+    // Se o método GET[idForEdit] estiver setado, ele fará um UPDATE conforme o ID passado, caso contrário fará um INSERT
+    if (isset($_GET['idForEdit'])) {
+
+        // Se a imagem não for passada, vai alterar a consulta
+        if (!file_exists($_FILES['cardImage']['tmp_name']) || !is_uploaded_file($_FILES['cardImage']['tmp_name'])) {
+            $queryParam = null;
+        } else {
+
+            include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/cardImage.php";
+            $queryParam =  ', c.cardPhoto = :cardPhotoBind';
+        }
+        
+        $dbQueryCard = $database->prepare("UPDATE card SET
+                                                    cardName = :cardNameBind, 
+                                                    cardAtt1Value = :cardAtt1Bind,  
+                                                    cardAtt2Value = :cardAtt2Bind, 
+                                                    cardAtt3Value = :cardAtt3Bind, 
+                                                    cardAtt4Value = :cardAtt4Bind 
+                                                    $queryParam
+                                        WHERE cardId = :cardIdBind;");
+
+        $dbQuerySpecial = $database->prepare("UPDATE specialAttribute SET
+                                                    specialAttName = :specialNameBind, 
+                                                    specialAttReference = :specialRefBind, 
+                                                    specialAttValue  = :specialValueBind
+                                        WHERE cardId = :cardIdBind;");
+
+        $dbQueryCard->bindValue(':cardIdBind', $_GET['idForEdit']);
+        $dbQuerySpecial->bindValue(':cardIdBind', $_GET['idForEdit']);
+    } else {
+
+        if (!file_exists($_FILES['cardImage']['tmp_name']) || !is_uploaded_file($_FILES['cardImage']['tmp_name'])) {
+            // NOTA: substituir por caminho de imagem padrão
+            $targetDatabase = '';
+            $queryParam = null;
+        } else {
+            include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/cardImage.php";
+            $queryParam = 'ok';
+        }
+
+        $dbQueryCard = $database->prepare("INSERT INTO card (
+                                                       cardName, 
+                                                       cardAtt1Value,	
+                                                       cardAtt2Value, 
+                                                       cardAtt3Value, 
+                                                       cardAtt4Value, 
+                                                       cardPhoto, 
+                                                       deckId)
+                                            VALUES (
+                                                       :cardNameBind,
+                                                       :cardAtt1Bind,
+                                                       :cardAtt2Bind,
+                                                       :cardAtt3Bind,
+                                                       :cardAtt4Bind,
+                                                       :cardPhotoBind,
+                                                       :deckIdBind);");
+
+        $dbQuerySpecial = $database->prepare("INSERT INTO specialAttribute (
+                                                       specialAttName, 
+                                                       specialAttReference,	
+                                                       specialAttValue, 
+                                                       cardId)
+                                            VALUES (
+                                                       :specialNameBind,
+                                                       :specialRefBind,
+                                                       :specialValueBind,
+                                                       @@IDENTITY;");
+
+        $dbQueryCard->bindValue(':deckIdBind', $_GET['deckIdForEdit']);
+    }
+
+    $dbQueryCard->bindValue(':cardNameBind', $_POST['cardname']);
+    $dbQueryCard->bindValue(':cardAtt1Bind', $_POST['attribute1']);
+    $dbQueryCard->bindValue(':cardAtt2Bind', $_POST['attribute2']);
+    $dbQueryCard->bindValue(':cardAtt3Bind', $_POST['attribute3']);
+    $dbQueryCard->bindValue(':cardAtt4Bind', $_POST['attribute4']);
+    if ($queryParam !== null) $dbQueryCard->bindValue(':cardPhotoBind', $targetDatabase);
+
+    $dbQueryCard->execute();
+
+    // NOTA: Adicionar mensagem de erro caso 1 dos 3 POSTS dos atributos especiais não esteja setado
+    if (isset($_POST['specialAttributeName']) && isset($_POST['specialAttributeRef']) && isset($_POST['specialAttributeValue'])) {
+
+        $dbQuerySpecial->bindValue(':specialNameBind', $_POST['specialAttributeName']);
+        $dbQuerySpecial->bindValue(':specialRefBind', $_POST['specialAttributeRef']);
+        $dbQuerySpecial->bindValue(':specialValueBind', $_POST['specialAttributeValue']);
+
+        $dbQuerySpecial->execute();
+    }
+} else if (isset($_POST['action']) && $_POST['action'] === 'Excluir-carta' && isset($_GET['idForEdit'])) {
+
+    $dbQuery = $database->prepare("DELETE FROM card WHERE cardId = :cardIdBind;");
+    $dbQuery->bindValue(':cardIdBind', $_GET['idForEdit']);
+
+    if ($dbQuery->execute()) {
+        header('Location: /Mega-Triunfo/Projeto/public/html/create-card.php?deckIdForEdit=' . $_GET['$deckIdForEdit']);
+    }
+}
 
 // Seleciona a carta para edição
 if (isset($_GET['idForEdit'])) {
@@ -15,14 +116,25 @@ if (isset($_GET['idForEdit'])) {
                                     c.cardPhoto,
                                     s.specialAttName,
                                     s.specialAttReference,
-                                    s.specialAttValue 
+                                    s.specialAttValue,
+                                    COUNT (s.cardId) AS countSpecial
                                     FROM card AS c
                                     LEFT OUTER JOIN specialAttribute as s
-                                    ON s.cardId = c.cardId WHERE c.cardId = :cardIdBind");
+                                    ON s.cardId = c.cardId WHERE c.cardId = :cardIdBind
+                                    GROUP BY c.cardId,
+                                             c.cardName, 
+                                             c.cardAtt1Value, 
+                                             c.cardAtt2Value, 
+                                             c.cardAtt3Value, 
+                                             c.cardAtt4Value, 
+                                             c.cardPhoto,
+                                             s.specialAttName,
+                                             s.specialAttReference,
+                                             s.specialAttValue");
 
     $dbQuery->bindValue(':cardIdBind', $_GET['idForEdit']);
     $dbQuery->execute();
- 
+
     foreach ($dbQuery as $cardSelect) {
 
         $cardQuery[] = [
@@ -37,6 +149,8 @@ if (isset($_GET['idForEdit'])) {
             'Special Ref' => $cardSelect['specialAttReference'],
             'Special Value' => $cardSelect['specialAttValue']
         ];
+
+        $cardCount = $cardSelect['countSpecial'];
     };
 
     // Convertendo o Array PHP em um Array JavaScript

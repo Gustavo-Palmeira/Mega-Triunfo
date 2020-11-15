@@ -30,6 +30,8 @@ let DOMStrings = {
   newDeckbtn: document.querySelector('#btn-new-deck'),
   deleteDeckbtn: document.querySelector('#btn-delete-deck'),
   saveDeckbtn: document.querySelector('#btn-save-deck'),
+  deleteCardbtn: document.querySelector('#btn-delete-card'),
+  saveCardbtn: document.querySelector('#btn-save-card'),
   addCardbtn: document.querySelector('#btn-add-card'),
   closeDeckbtn: document.querySelector('#btn-close-deck'),
 }
@@ -99,7 +101,7 @@ document.querySelectorAll('.editIcon').forEach(element => {
 
 
 if (DOMStrings.cardCount) {
-    DOMStrings.cardCount.textContent = `Cartas (${document.querySelector('.table').children.length})`;
+  DOMStrings.cardCount.textContent = `Cartas (${document.querySelector('.table').children.length})`;
 }
 
 // NOTA: Transformar em função - Ao clique que "Novo baralho", reseta a página
@@ -128,27 +130,40 @@ if (DOMStrings.closeDeckbtn) {
 };
 
 
-// NOTA: Transformar em função - Alert para salvamento (adição ou edição) de novos baralhos 
-if (DOMStrings.saveDeckbtn) {
-  DOMStrings.saveDeckbtn.addEventListener('click', function () {
+// NOTA: Disparar função apenas quando os campos do form estiverem preenchidos. Alert para salvamento (adição ou edição) de novas cartas e baralhos
+function saveButton() {
+  if (document.querySelector('.savebtn').id == 'btn-save-card') {
+    if (window.location.href.includes('?idForEdit=')) {
+      alert('Carta alterada!');
+    } else {
+      alert('Carta salva!')
+    }
+  } else {
     if (window.location.href.includes('?idForEdit=')) {
       alert('Baralho alterado!');
     } else {
       alert('Baralho salvo!')
     }
-  })
+  }
 };
 
-// NOTA: Transformar em função - Alert para confirmação de exclusão de baralho
-if (DOMStrings.deleteDeckbtn) {
-  DOMStrings.deleteDeckbtn.addEventListener('click', function () {
-    if (window.location.href.includes('?idForEdit=')) {
+// NOTA: Disparar função apenas quando os campos do form estiverem preenchidos. - Alert para confirmação de exclusão de baralho
+function deleteButton() {
+  if (document.querySelector('.deletebtn').id == 'btn-delete-card') {
+    if (window.location.href.includes('idForEdit=')) {
+      confirm('Deseja deletar a carta? Não é possível recuperá-la.');
+      alert('Carta deletada!');
+    } else {
+      alert('É necessário selecionar uma carta para deletar.')
+    }
+  } else {
+    if (window.location.href.includes('idForEdit=')) {
       confirm('Deseja deletar o baralho e suas cartas? Não é possível recuperá-los.');
       alert('Baralho deletado!');
     } else {
       alert('É necessário selecionar um baralho para deletar.')
     }
-  })
+  }
 };
 
 // NOTA: Transformar em função - Alterando o label e a prévia da imagem quando uma imagem for carregada
