@@ -4,24 +4,36 @@ let DOMStrings = {
   eyeIcon: '.icon-eye-style',
   passwordInput: '.password-type',
   // TABELAS
-  cardDecklist: '#deck-list',
-  thead: 'thead',
-  editIconsList: document.querySelectorAll('.editIcon'),
+  cardDecklist: document.querySelector('#deck-list'),
+  thead: document.querySelector('thead'),
+  editIconsList: '.editIcon',
+  cardCount: document.querySelectorAll('#cardCount')[0],
   // INPUTS DA TELA DE DECKS
-  deckName: '#name',
-  deckAtt1: '#attribute1',
-  deckAtt2: '#attribute2',
-  deckAtt3: '#attribute3',
-  deckAtt4: '#attribute4',
-  deckPhoto: '#deckPhoto',
-  deckPhotoFileInput: '#deckImage',
-  deckPhotolbl: '#deckImagelbl',
-  deckImageView: '#deckImageView',
-  deckPhotoPOST: '#deckPhotoPOST',
+  deckName: document.querySelector('#deckname'),
+  deckAtt1: document.querySelector('#deckattribute1'),
+  deckAtt2: document.querySelector('#deckattribute2'),
+  deckAtt3: document.querySelector('#deckattribute3'),
+  deckAtt4: document.querySelector('#deckattribute4'),
+  deckPhotoFileInput: document.querySelector('#deckImage'),
+  deckPhotolbl: document.querySelector('#deckImagelbl'),
+  deckImageView: document.querySelector('#deckImageView'),
+  // INPUTS DA TELA DE CARDS
+  cardName: document.querySelector('#cardname'),
+  cardAtt1: document.querySelector('#cardattribute1'),
+  cardAtt2: document.querySelector('#cardattribute2'),
+  cardAtt3: document.querySelector('#cardattribute3'),
+  cardAtt4: document.querySelector('#cardattribute4'),
+  specialAttName: document.querySelector('#specialAttributeName'),
+  specialAttRef: document.querySelector('#specialAttributeRef'),
+  specialAttValue: document.querySelector('#specialAttributeValue'),
   // BOTÕES
-  newDeckbtn: '#btn-new-deck',
-  deleteDeckbtn: '#btn-delete-deck',
-  saveDeckbtn: '#btn-save-deck'
+  newDeckbtn: document.querySelector('#btn-new-deck'),
+  deleteDeckbtn: document.querySelector('#btn-delete-deck'),
+  saveDeckbtn: document.querySelector('#btn-save-deck'),
+  deleteCardbtn: document.querySelector('#btn-delete-card'),
+  saveCardbtn: document.querySelector('#btn-save-card'),
+  addCardbtn: document.querySelector('#btn-add-card'),
+  closeDeckbtn: document.querySelector('#btn-close-deck'),
 }
 
 // Função troca visibilidade da senha
@@ -65,74 +77,141 @@ function changePassword() {
 };
 
 // NOTA: Transformar em função
-document.querySelector(DOMStrings.cardDecklist).addEventListener('scroll', function () {
+DOMStrings.cardDecklist.addEventListener('scroll', function () {
   let translate = "translate(0,' + this.scrollTop + 'px)";
-  document.querySelector(DOMStrings.thead).style.transform = translate;
+  console.log(translate);
+  DOMStrings.thead.style.transform = translate;
 });
 
 // NOTA: Transformar em função - Para cada elemento do tipo "ícone de edição", adicionar uma função ao clique que redireciona para a mesma página, porém setando o método GET com o ID do item clicado
-DOMStrings.editIconsList.forEach(element => {
+document.querySelectorAll('.editIcon').forEach(element => {
   element.addEventListener('click', function () {
-    window.location.href = "/Mega-Triunfo/Projeto/public/html/create-deck.php?idForEdit=" + parseInt(element.getAttribute('name'));
+    if (window.location.href.includes('create-deck')) {
+      window.location.href = "/Mega-Triunfo/Projeto/public/html/create-deck.php?idForEdit=" + parseInt(element.getAttribute('name'));
+    } else if (window.location.href.includes('create-card')) {
+      if (window.location.href.includes('&idForEdit=')) {
+        window.location.href = window.location.href.split('&idForEdit')[0] + "&idForEdit=" + parseInt(element.getAttribute('name'));
+        console.log(window.location.href);
+      } else {
+        window.location.href = "/Mega-Triunfo/Projeto/public/html/create-card.php" + window.location.href.split('php')[1] + "&idForEdit=" + parseInt(element.getAttribute('name'));
+      }
+    }
   });
 });
 
+
+if (DOMStrings.cardCount) {
+  DOMStrings.cardCount.textContent = `Cartas (${document.querySelector('.table').children.length})`;
+}
+
 // NOTA: Transformar em função - Ao clique que "Novo baralho", reseta a página
-document.querySelector(DOMStrings.newDeckbtn).addEventListener('click', function () {
-  window.location.href = "/Mega-Triunfo/Projeto/public/html/create-deck.php";
-});
+if (DOMStrings.newDeckbtn) {
+  DOMStrings.newDeckbtn.addEventListener('click', function () {
+    window.location.href = "/Mega-Triunfo/Projeto/public/html/create-deck.php";
+  })
+};
 
-// NOTA: Transformar em função - Alert para salvamento (adição ou edição) de novos baralhos 
-document.querySelector(DOMStrings.saveDeckbtn).addEventListener('click', function () {
-  if (window.location.href.includes('?idForEdit=')) {
-    alert('Baralho alterado!');
-  } else {
-    alert('Baralho salvo!')
-  }
-});
+// NOTA: Transformar em função - Ao clique de "Adicionar carta", vai para a próxima página
+if (DOMStrings.addCardbtn) {
+  DOMStrings.addCardbtn.addEventListener('click', function () {
+    if (window.location.href.includes('?idForEdit=')) {
+      window.location.href = "/Mega-Triunfo/Projeto/public/html/create-card.php?deckIdForEdit=" + window.location.href.split('=')[1];
+    } else {
+      alert('Você precisa selecionar um baralho para adicionar uma carta!')
+    }
+  })
+};
 
-// NOTA: Transformar em função - Alert para confirmação de exclusão de baralho
-document.querySelector(DOMStrings.deleteDeckbtn).addEventListener('click', function () {
-  if (window.location.href.includes('?idForEdit=')) {
-    confirm ('Deseja deletar o baralho e suas cartas? Não é possível recuperá-los.');
-    alert('Baralho deletado!');
+// NOTA: Transformar em função - Ao clique de "Fechar baralho", retorna ao menu anterior
+if (DOMStrings.closeDeckbtn) {
+  DOMStrings.closeDeckbtn.addEventListener('click', function () {
+    window.location.href = "/Mega-Triunfo/Projeto/public/html/create-deck.php";
+  })
+};
+
+
+// NOTA: Disparar função apenas quando os campos do form estiverem preenchidos. Alert para salvamento (adição ou edição) de novas cartas e baralhos
+function saveButton() {
+  if (document.querySelector('.savebtn').id == 'btn-save-card') {
+    if (window.location.href.includes('?idForEdit=')) {
+      alert('Carta alterada!');
+    } else {
+      alert('Carta salva!')
+    }
   } else {
-    alert('É necessário selecionar um baralho para deletar.')
+    if (window.location.href.includes('?idForEdit=')) {
+      alert('Baralho alterado!');
+    } else {
+      alert('Baralho salvo!')
+    }
   }
-});
+};
+
+// NOTA: Disparar função apenas quando os campos do form estiverem preenchidos. - Alert para confirmação de exclusão de baralho
+function deleteButton() {
+  if (document.querySelector('.deletebtn').id == 'btn-delete-card') {
+    if (window.location.href.includes('idForEdit=')) {
+      confirm('Deseja deletar a carta? Não é possível recuperá-la.');
+      alert('Carta deletada!');
+    } else {
+      alert('É necessário selecionar uma carta para deletar.')
+    }
+  } else {
+    if (window.location.href.includes('idForEdit=')) {
+      confirm('Deseja deletar o baralho e suas cartas? Não é possível recuperá-los.');
+      alert('Baralho deletado!');
+    } else {
+      alert('É necessário selecionar um baralho para deletar.')
+    }
+  }
+};
 
 // NOTA: Transformar em função - Alterando o label e a prévia da imagem quando uma imagem for carregada
-document.querySelector(DOMStrings.deckPhotoFileInput).addEventListener('change', function () {
+if (DOMStrings.deckPhotoFileInput) {
+  DOMStrings.deckPhotoFileInput.addEventListener('change', function () {
+    if (this.files[0].size > 5242880) {
+      alert('Tamanho máximo excedido (5 MB).');
+      this.value = '';
+    }
 
-  if (this.files[0].size > 5242880) {
-    alert('Tamanho máximo excedido (5 MB).');
-    this.value = '';
-  }
-
-  document.querySelector(DOMStrings.deckPhotolbl).textContent = document.querySelector(DOMStrings.deckPhotoFileInput).value;
-  readURL(document.querySelector(DOMStrings.deckPhotoFileInput));
-});
+    DOMStrings.deckPhotolbl.textContent = DOMStrings.deckPhotoFileInput.value;
+    readURL(DOMStrings.deckPhotoFileInput);
+  })
+};
 
 function readURL(input) {
   if (input.files && input.files[0]) {
-      var reader = new FileReader();
-      reader.onload = function (e) {
-          document.querySelector(DOMStrings.deckImageView).src = e.target.result;
-      }  
-      reader.readAsDataURL(input.files[0]);
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      DOMStrings.deckImageView.src = e.target.result;
+    }
+    reader.readAsDataURL(input.files[0]);
   }
 }
 
 // Função para atualizar os campos do item selecionado com o array que veio da consulta PHP
-function updateInputsForDeckEdit() {
-  if (window.$PHPEditArray) {
-    document.querySelector(DOMStrings.deckName).value = $PHPEditArray[0]['Name'];
-    document.querySelector(DOMStrings.deckAtt1).value = $PHPEditArray[0]['Attribute1'];
-    document.querySelector(DOMStrings.deckAtt2).value = $PHPEditArray[0]['Attribute2'];
-    document.querySelector(DOMStrings.deckAtt3).value = $PHPEditArray[0]['Attribute3'];
-    document.querySelector(DOMStrings.deckAtt4).value = $PHPEditArray[0]['Attribute4'];
-    document.querySelector(DOMStrings.deckImageView).src = $PHPEditArray[0]['Photo'];
+function updateInputsForEdit() {
+  if (window.$PHPEditArray && window.location.href.includes('create-deck')) {
+
+    DOMStrings.deckName.value = $PHPEditArray[0]['Name'];
+    DOMStrings.deckAtt1.value = $PHPEditArray[0]['Attribute1'];
+    DOMStrings.deckAtt2.value = $PHPEditArray[0]['Attribute2'];
+    DOMStrings.deckAtt3.value = $PHPEditArray[0]['Attribute3'];
+    DOMStrings.deckAtt4.value = $PHPEditArray[0]['Attribute4'];
+    DOMStrings.deckImageView.src = $PHPEditArray[0]['Photo'];
+
+  } else if (window.$PHPEditCardArray && window.location.href.includes('create-card')) {
+    DOMStrings.cardName.value = $PHPEditCardArray[0]['Name'];
+    DOMStrings.cardAtt1.value = $PHPEditCardArray[0]['Attribute1'];
+    DOMStrings.cardAtt2.value = $PHPEditCardArray[0]['Attribute2'];
+    DOMStrings.cardAtt3.value = $PHPEditCardArray[0]['Attribute3'];
+    DOMStrings.cardAtt4.value = $PHPEditCardArray[0]['Attribute4'];
+    DOMStrings.specialAttName.value = $PHPEditCardArray[0]['Special Name'];
+    DOMStrings.specialAttValue.value = $PHPEditCardArray[0]['Special Value'];
+    DOMStrings.specialAttRef.value = $PHPEditCardArray[0]['Special Ref'];
+
+    console.log($PHPEditCardArray);
   }
 }
 
-updateInputsForDeckEdit();
+updateInputsForEdit();

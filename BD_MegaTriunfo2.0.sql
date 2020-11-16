@@ -51,4 +51,4 @@ INSERT INTO card (cardName, cardAtt1Value, cardAtt2Value, cardAtt3Value, cardAtt
 VALUES ('Card de Teste', 10, 20, 30, 40, 'Caminho da foto do card', 1);
 
 INSERT INTO specialAttribute (specialAttName, specialAttReference, specialAttValue, cardId)
-VALUES ('Atributo especial de teste', 'Atributo refe', 10, 1);
+VALUES ('Atributo especial de teste', 2, 10, 1);
