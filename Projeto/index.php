@@ -15,12 +15,12 @@
 
           ?>
           <!-- <h1 class="text-uppercase"> Login </h1> -->
-          <label class="mb-0" for=""> Usuário </label>
+          <label class="mb-0" for="userLoginIndex"> Usuário </label>
           <div class="input-border mt-0">
             <input class="input-style input-invisible" type="text" id="userLoginIndex" name="userLoginIndex">
             <img class="icon-style" src="./public/img/icons/user.svg" alt="Ícone user">
           </div>
-          <label class="mt-2 mb-0" for=""> Senha </label>
+          <label class="mt-2 mb-0" for="passwordLoginIndex"> Senha </label>
           <div class="input-border mt-0">
             <input class="input-style input-invisible password-type" type="password" id="passwordLoginIndex" name="passwordLoginIndex">
             <img class="icon-style icon-eye-style" src="./public/img/icons/eye.svg" alt="Ícone senha" onclick="changePasswordIndex()">
