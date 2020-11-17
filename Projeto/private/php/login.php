@@ -4,7 +4,9 @@
 ini_set('display_startup_errors', 0);
 error_reporting(E_ALL); */
 
-session_start();
+// session_start();
+
+require './sessionStart.php';
 
 require_once $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/database/db.php";
 
@@ -26,7 +28,7 @@ if (isset($_POST['startLogin'])) {
 
   // Comparar
   if (password_verify($password, $hash)) {
-
+    
     $_SESSION['login'] = $login;
     include $_SERVER['DOCUMENT_ROOT'] . '/Mega-Triunfo/Projeto/public/html/partials/privateHead.php';
     include $_SERVER['DOCUMENT_ROOT'] . '/Mega-Triunfo/Projeto/public/html/start-game.php';

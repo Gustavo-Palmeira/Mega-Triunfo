@@ -1,4 +1,5 @@
-<?php echo 'Safety hã?<br>';
+<?php
+echo 'Safety hã?<br>';
 //Silence is golden
 
 // TESTE -> REMOVER DEPOIS

@@ -283,7 +283,7 @@
         <div class='col-3 container-card'>
           <div class='container d-flex flex-wrap flex-column justify-content-center h-100 align-items-center'>
             <img class='img-fluid mt-4 d-block rounded' src='https://via.placeholder.com/300x400'>
-            <span class='h4 mt-3'>Nome do Baralho</span>
+            <span class='h4 mt-3'><?php echo $_SESSION; ?></span>
             <button id='btn-new-card' class='manage-card-buttons mt-3'>
               Jogar
               <span class='manage-card-buttons-border'></span>

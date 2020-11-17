@@ -13,5 +13,4 @@
   <script src='../js/script.js' defer></script>
   <script src='https://kit.fontawesome.com/8e2f41b6ca.js' crossorigin='anonymous' defer></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  </script>
 </head>

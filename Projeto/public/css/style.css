@@ -267,9 +267,15 @@ Cor da scrollbar
 #btn-new-card,
 #btn-close-deck,
 #btn-new-deck,
-#btn-add-card {
-  background-color: var(--dark-purple);
-  color: var(--white);
+#btn-add-card{
+  background-color: var(--dark-purple) !important;
+  color: var(--white) !important;
+  box-sizing: border-box !important;
+}
+.btn-std{
+  background-color: var(--dark-purple) !important;
+  color: var(--white) !important;
+  box-sizing: border-box !important;
 }
 #deck-table {
   /* height: 90%; */
