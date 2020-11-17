@@ -1,11 +1,11 @@
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/public/html/partials/head.php"; ?>
 
-<?php include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/public/html/partials/header.php"; ?>
 
 
 
-<body class='d-flex flex-column vh-100 align-content-center justify-content-around text-center'>
-
+<body class='d-flex vh-100 align-items-center justify-content-center text-center flex-wrap overflow-start'>
+  
+  <?php include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/public/html/partials/header.php"; ?>
   <main class='container d-flex justify-content-center align-items-center'>
     <div class='row bg-white container-shadow'>
       <div class='col-6 container-card py-2'>
