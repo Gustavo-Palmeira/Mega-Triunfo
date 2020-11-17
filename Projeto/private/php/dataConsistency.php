@@ -1,19 +1,6 @@
 <?php require($_SERVER['DOCUMENT_ROOT'] . '/Mega-Triunfo/projeto/public/html/partials/privateHead.php') ?>
 
 <?php
-$name = $_POST['userForm'] ?? null;
-$email = $_POST['emailForm'] ?? null;
-$passwordForm = $_POST['passwordForm'] ?? null;
-$passwordConf = $_POST['passwordConfForm'] ?? null;
-
-// Evita espaço antes ou depois da senha
-$passwordForm = trim($passwordForm);
-
-// E-mail sempre minúsculo
-$email = strToLower($email);
-
-// Array com os errros possíveis
-$erros = [];
 
 // Chamando Banco
 require_once "database/db.php";
@@ -37,29 +24,58 @@ function existingEmail(string $emailForm): bool
   return is_array($register) ? true : false;
 }
 
+// Validação de consistência do cadastro
+if (isset($_POST['register'])) {
 
-// Verifica se o nome tem mais que dois ou caracteres
-if (strlen($name) < 2) {
-  $erros[] = "O nome deve contém pelo menos 2 caracteres";
+  $name = $_POST['userForm'] ?? null;
+  $email = $_POST['emailForm'] ?? null;
+  $passwordForm = $_POST['passwordForm'] ?? null;
+  $passwordConf = $_POST['passwordConfForm'] ?? null;
+
+  // Evita espaço antes ou depois da senha
+  $passwordForm = trim($passwordForm);
+
+  // E-mail sempre minúsculo
+  $email = strToLower($email);
+
+  // Array com os errros possíveis
+  $erros = [];
+
+  // Verifica se o nome tem mais que dois ou caracteres
+  if (strlen($name) < 2) {
+    $erros[] = "O nome deve contém pelo menos 2 caracteres";
+  }
+
+  // Verifica se o e-mail é válido
+  if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $erros[] = 'E-mail inválido';
+  } else if (existingEmail($email)) {
+    $erros[] = 'E-mail já cadastrado';
+  }
+
+  // Verifica se a senha possui mais que 8 caracteres
+  if (strlen($passwordForm) < 8) {
+    $erros[] = "A senha deve conter 8 caracteres ou mais";
+  } else if ($passwordForm != $passwordConf) {
+    $erros[] = "As senhas não são iguais";
+  }
 }
 
-// Verifica se o e-mail é válido
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-  $erros[] = 'E-mail inválido';
-} else if (existingEmail($email)) {
-  $erros[] = 'E-mail já cadastrado';
-}
+// Validação de consistência da troca de e-mail
+if (isset($_POST['changePasswordForm'])) {
 
-// Verifica se a senha possui mais que 8 caracteres
-if (strlen($passwordForm) < 8) {
-  $erros[] = "A senha deve conter 8 caracteres ou mais";
-} else if ($passwordForm != $passwordConf) {
-  $erros[] = "As senhas não são idênticas";
-}
+  $email = $_POST['emailForm'] ?? null;
+  $confEmail = $_POST['confEmailForm'] ?? null;
 
-/* //var_dump($erros == NULL);
+  // Verifica se o e-mail é válido
+  if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $erros[] = 'E-mail inválido';
+  } else if (!existingEmail($email)) {
+    $erros[] = 'E-mail não existe na base de dados';
+  }
 
-if (is_null($erros)) {
-  include $_SERVER['DOCUMENT_ROOT'] . '/Mega-Triunfo/projeto/private/php/createUserSucsess.php';
+  // Verifica se os e-mais são iguais 
+  if ($email != $confEmail) {
+    $erros[] = "Os e-mails não são iguais";
+  }
 }
- */

@@ -5,9 +5,7 @@ if (isset($_POST['register'])) {
   require 'dataConsistency.php';
 }
 
-include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/projeto/public/html/partials/privateHead.php";
-
-if (count($erros) > 0) {
+if (isset($erros) && count($erros) > 0) {
 ?>
 
   <body>
