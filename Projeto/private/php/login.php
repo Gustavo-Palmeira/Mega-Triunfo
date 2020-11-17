@@ -15,8 +15,13 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/data
 // $pass = password_hash('admin', PASSWORD_DEFAULT);  
 // $database->query("INSERT INTO userLogin (userEmail, userPassword) VALUES ('arthur@senac.com.br', '$pass')"); 
 
-if (isset($_POST['startLogin'])) {
 
+if (isset($_SESSION['login'])) {
+
+  include $_SERVER['DOCUMENT_ROOT'] . '/Mega-Triunfo/Projeto/public/html/partials/privateHead.php';
+  include $_SERVER['DOCUMENT_ROOT'] . '/Mega-Triunfo/Projeto/public/html/start-game.php';
+  
+} else if (isset($_POST['startLogin'])) {
 
   $login = filter_var($_POST['userLoginIndex'], FILTER_SANITIZE_EMAIL);
   $password = $_POST['passwordLoginIndex'];
@@ -32,8 +37,8 @@ if (isset($_POST['startLogin'])) {
     $_SESSION['login'] = $login;
     include $_SERVER['DOCUMENT_ROOT'] . '/Mega-Triunfo/Projeto/public/html/partials/privateHead.php';
     include $_SERVER['DOCUMENT_ROOT'] . '/Mega-Triunfo/Projeto/public/html/start-game.php';
-
   } else {
+
     header('Location: ../../index.php?msg=Credenciais inválidas');
   }
 } else {

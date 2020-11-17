@@ -27,7 +27,7 @@
             <img class="icon-style ml-4" src="../img/icons/key.svg" alt="Ícone senha">
           </div>
           <button href="#" class="btn-submit mx-auto mt-2">
-          <input type="hidden" name="register" id="register" value="register">
+            <input type="hidden" name="register" id="register" value="register">
             <span class="btn-border"></span>
             <img class="icon-style icon-arrow-style" src="../img/icons/arrow.svg" alt="Ícone senha">
           </button> 
