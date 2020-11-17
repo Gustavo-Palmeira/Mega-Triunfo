@@ -1,15 +1,11 @@
 <?php include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/public/html/partials/head.php"; ?>
 
-<?php include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/public/html/partials/header.php"; ?>
 
-<body class='d-flex flex-column vh-100 align-content-center justify-content-around text-center'>
-
+<body class='d-flex vh-100 align-items-center justify-content-center text-center flex-wrap overflow-start'>
+  <?php include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/public/html/partials/header.php"; ?>
   <main class='container d-flex justify-content-center align-items-center'>
     <div class='bg-white container-shadow container-size w-100 p-4'>
       <h2 class="mb-3"> Desevolvedores </h2>
-
-      <section>
-
         <div class="row mt-3 col-12">
           <div class="col-4 h4 container-card-dev d-flex align-items-center justify-content-center">
             <img src='https://via.placeholder.com/270x320' class='img-fluid'>
@@ -86,8 +82,6 @@
 
           </div>
         </div>
-
-      </section>
 
   </main>
 

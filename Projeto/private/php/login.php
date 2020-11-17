@@ -10,8 +10,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/data
 
 //var_dump(isset($_POST['startLogin']));
 
-/* $pass = password_hash('admin', PASSWORD_DEFAULT);
-$database->query("INSERT INTO userLogin (userEmail, userPassword) VALUES ('gustavo@senac.com.br', '$pass')"); */
+// $pass = password_hash('admin', PASSWORD_DEFAULT);  
+// $database->query("INSERT INTO userLogin (userEmail, userPassword) VALUES ('arthur@senac.com.br', '$pass')"); 
 
 
 if (isset($_SESSION['login'])) {
