@@ -18,7 +18,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/data
 
 if (isset($_SESSION['login'])) {
 
-  include $_SERVER['DOCUMENT_ROOT'] . '/Mega-Triunfo/Projeto/public/html/partials/privateHead.php';
+  include $_SERVER['DOCUMENT_ROOT'] . '/Mega-Triunfo/Projeto/public/html/partials/head.php';
   include $_SERVER['DOCUMENT_ROOT'] . '/Mega-Triunfo/Projeto/public/html/start-game.php';
   
 } else if (isset($_POST['startLogin'])) {
@@ -34,8 +34,9 @@ if (isset($_SESSION['login'])) {
   // Comparar
   if (password_verify($password, $hash)) {
     
+
     $_SESSION['login'] = $login;
-    include $_SERVER['DOCUMENT_ROOT'] . '/Mega-Triunfo/Projeto/public/html/partials/privateHead.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/Mega-Triunfo/Projeto/public/html/partials/head.php';
     include $_SERVER['DOCUMENT_ROOT'] . '/Mega-Triunfo/Projeto/public/html/start-game.php';
   } else {
 

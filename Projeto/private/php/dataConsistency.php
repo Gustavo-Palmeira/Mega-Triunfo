@@ -1,4 +1,4 @@
-<?php require($_SERVER['DOCUMENT_ROOT'] . '/Mega-Triunfo/projeto/public/html/partials/privateHead.php') ?>
+<?php require($_SERVER['DOCUMENT_ROOT'] . '/Mega-Triunfo/projeto/public/html/partials/head.php') ?>
 
 <?php
 

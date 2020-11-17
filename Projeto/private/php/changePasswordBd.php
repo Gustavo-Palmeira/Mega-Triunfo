@@ -50,9 +50,12 @@ if (isset($erros) && count($erros) > 0) {
 
   //Envio de e-mail para troca de senha 
   $to = $_POST['emailForm'];
+  // $to = 'arthur@brindesdeluxo.com.br';
   $subject = "Troca de senha - Mega-Triunfo";
   $message = "Olá, tudo certo? Acesse o link abaixo para alterar a senha de acesso ao sistema Mega-Triunfo: ";
-  $headers = "From: root@localhoat.com";
+  $headers =  'From: webmaster@localhost.com' . "\r\n" .
+              'Reply-To: webmaster@localhost.com' . "\r\n" .
+              'X-Mailer: PHP/' . phpversion();
 
   if (mail($to, $subject, $message, $headers)) {
     echo "E-mail de confirmação enviado!";
