@@ -3,7 +3,7 @@
 require $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/public/html/partials/head.php";
 // require $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/public/html/partials/header.php";
 
-// include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/cardManage.php";
+include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/cardManage.php";
 
 ?>
 
@@ -14,8 +14,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/public/html/partials/
     <div class='row bg-white container-shadow container-size'>
       <div class='col-3 container-card d-flex align-items-center vh-80'>
         <div class='container d-flex flex-wrap justify-content-center'>
-          <img src='https://via.placeholder.com/300x200' class='img-fluid mt-3 d-block'>
-          <img src='https://via.placeholder.com/600x300' class='img-fluid mt-1 d-block'>
+          <img src='https://via.placeholder.com/300x400' class='img-fluid mt-3 d-block' id='cardImageView'>
           <span class='h4 mt-3'>Nome do Baralho</span>
           <button id='btn-new-card' class='manage-card-buttons mt-3'>
             Nova carta
@@ -36,7 +35,7 @@ require $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/public/html/partials/
           <div class="col-10 input-group image-container m-2 mx-auto">
             <div class="custom-file">
               <input type="file" class="custom-file-input" id="cardImage" name="cardImage">
-              <label class="custom-file-label" for="cardImage">Escolher foto da carta</label>
+              <label class="custom-file-label text-left" for="cardImage" id="cardImagelbl">Escolher foto da carta</label>
             </div>
           </div>
 
@@ -110,7 +109,6 @@ require $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/public/html/partials/
               </tr>
             </thead>
             <tbody class="noselect">
-              <!-- Substituir depois por código PHP que vai atualizar com o banco de dados-->
               <?php require $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/cardSelect.php"; ?>
             </tbody>
           </table>
