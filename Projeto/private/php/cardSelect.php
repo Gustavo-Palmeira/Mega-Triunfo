@@ -8,10 +8,13 @@ $dbQuery = $database->prepare('SELECT c.cardId,
                                     c.cardAtt2Value, 
                                     c.cardAtt3Value, 
                                     c.cardAtt4Value, 
-                                    c.cardPhoto 
+                                    c.cardPhoto,
+                                    s.specialAttValue 
                                     FROM card AS c
                                     INNER JOIN deck AS d 
-                                    ON c.deckId = :deckIdBind;');
+                                    ON c.deckId = :deckIdBind
+                                    INNER JOIN specialAttribute as s
+                                    ON s.cardId = c.cardId;');
 
 $dbQuery->bindValue(':deckIdBind', $_GET['deckIdForEdit']);
 $dbQuery->execute();
@@ -26,7 +29,8 @@ foreach ($dbQuery as $cardSelect) {
         'Attribute2' => $cardSelect['cardAtt2Value'],
         'Attribute3' => $cardSelect['cardAtt3Value'],
         'Attribute4' => $cardSelect['cardAtt4Value'],
-        'Photo' => $cardSelect['cardPhoto']
+        'Photo' => $cardSelect['cardPhoto'],
+        'SpecialAtt' =>$cardSelect['specialAttValue']
     ];
 };
 
@@ -35,8 +39,8 @@ if (count($cardTable) > 0) {
     foreach ($cardTable as $register) {
         echo "<tr>
                 <td>{$register['Name']}</td>
-                <td>100 (INNER)</td>
-                <td><i class='far fa-edit editIcon' name='{$register['Id']}' style='cursor: pointer;'></i></td>                    
+                <td>{$register['SpecialAtt']}</td>
+                <td><i class='far fa-edit editIcon' name='{$register['Id']}' style='cursor: pointer;'></i></td>  </tr>                  
                 ";
     }
 } else {
