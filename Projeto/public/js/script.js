@@ -26,8 +26,12 @@ let DOMStrings = {
   specialAttName: document.querySelector('#specialAttributeName'),
   specialAttRef: document.querySelector('#specialAttributeRef'),
   specialAttValue: document.querySelector('#specialAttributeValue'),
+  cardPhotolbl: document.querySelector('#cardImagelbl'),
+  cardPhotoFileInput: document.querySelector('#cardImage'),
+  cardImageView: document.querySelector('#cardImageView'),
   // BOTÕES
   newDeckbtn: document.querySelector('#btn-new-deck'),
+  newCardbtn: document.querySelector('#btn-new-card'),
   deleteDeckbtn: document.querySelector('#btn-delete-deck'),
   saveDeckbtn: document.querySelector('#btn-save-deck'),
   deleteCardbtn: document.querySelector('#btn-delete-card'),
@@ -111,13 +115,20 @@ if (DOMStrings.newDeckbtn) {
   })
 };
 
+if (DOMStrings.newCardbtn) {
+  DOMStrings.newCardbtn.addEventListener('click', function () {
+    let get = window.location.href.split('?')[1];
+    window.location.href = "/Mega-Triunfo/Projeto/public/html/create-card.php?" + get.split('&')[0];
+  })
+};
+
 // NOTA: Transformar em função - Ao clique de "Adicionar carta", vai para a próxima página
 if (DOMStrings.addCardbtn) {
   DOMStrings.addCardbtn.addEventListener('click', function () {
     if (window.location.href.includes('?idForEdit=')) {
       window.location.href = "/Mega-Triunfo/Projeto/public/html/create-card.php?deckIdForEdit=" + window.location.href.split('=')[1];
     } else {
-      alert('Você precisa selecionar um baralho para adicionar uma carta!')
+      alert('Você precisa selecionar um baralho para gerenciar suas cartas!')
     }
   })
 };
@@ -167,15 +178,18 @@ function deleteButton() {
 };
 
 // NOTA: Transformar em função - Alterando o label e a prévia da imagem quando uma imagem for carregada
-if (DOMStrings.deckPhotoFileInput) {
-  DOMStrings.deckPhotoFileInput.addEventListener('change', function () {
+if (document.querySelector('.custom-file-input')) {
+  document.querySelector('.custom-file-input').addEventListener('change', function () {
     if (this.files[0].size > 5242880) {
       alert('Tamanho máximo excedido (5 MB).');
       this.value = '';
     }
-
-    DOMStrings.deckPhotolbl.textContent = DOMStrings.deckPhotoFileInput.value;
-    readURL(DOMStrings.deckPhotoFileInput);
+    if (this === DOMStrings.deckPhotoFileInput) {
+      DOMStrings.deckPhotolbl.textContent = this.value;
+    } else {
+      DOMStrings.cardPhotolbl.textContent = this.value;
+    }
+    readURL(this);
   })
 };
 
@@ -183,7 +197,11 @@ function readURL(input) {
   if (input.files && input.files[0]) {
     var reader = new FileReader();
     reader.onload = function (e) {
-      DOMStrings.deckImageView.src = e.target.result;
+      if (input === DOMStrings.deckPhotoFileInput) {
+        DOMStrings.deckImageView.src = e.target.result;
+      } else {
+        DOMStrings.cardImageView.src = e.target.result;
+      }
     }
     reader.readAsDataURL(input.files[0]);
   }
@@ -209,8 +227,7 @@ function updateInputsForEdit() {
     DOMStrings.specialAttName.value = $PHPEditCardArray[0]['Special Name'];
     DOMStrings.specialAttValue.value = $PHPEditCardArray[0]['Special Value'];
     DOMStrings.specialAttRef.value = $PHPEditCardArray[0]['Special Ref'];
-
-    console.log($PHPEditCardArray);
+    DOMStrings.cardImageView.src = $PHPEditCardArray[0]['Photo'];
   }
 }
 
