@@ -46,30 +46,30 @@ include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/cardManag
 
           <div class='col-6 mt-3 text-center'>
             <label for='attribute1' class='d-block'>Valor do Atributo 1</label>
-            <input type='text' id='cardattribute1' name='attribute1' class='input-form' required>
+            <input type='number' id='cardattribute1' name='attribute1' class='input-form' min='0' onkeypress='return isNumber(event)' required>
           </div>
 
           <div class='col-6 mt-3 text-center'>
             <label for='attribute2' class='d-block'>Valor do Atributo 2</label>
-            <input type='text' id='cardattribute2' name='attribute2' class='input-form' required>
+            <input type='number' id='cardattribute2' name='attribute2' class='input-form' min='0' onkeypress='return isNumber(event)' required>
           </div>
 
           <div class='col-6 mt-3 text-center'>
             <label for='attribute3' class='d-block'>Valor do Atributo 3</label>
-            <input type='text' id='cardattribute3' name='attribute3' class='input-form' required>
+            <input type='number' id='cardattribute3' name='attribute3' class='input-form' min='0' onkeypress='return isNumber(event)' required>
           </div>
 
           <div class='col-6 mt-3 text-center'>
             <label for='attribute4' class='d-block'>Valor do Atributo 4</label>
-            <input type='text' id='cardattribute4' name='attribute4' class='input-form' required>
+            <input type='number' id='cardattribute4' name='attribute4' class='input-form' min='0' onkeypress='return isNumber(event)' required>
           </div>
 
           <div class='col-6 mt-3 text-center'>
             <label for='specialAttribute' class='d-block'>Atributo Especial</label>
             <input type='text' id='specialAttributeName' name='specialAttributeName' class='input-form input-special-attribute' placeholder='Nome'>
-            <input type='text' id='specialAttributeValue' name='specialAttributeValue' class='input-form input-special-value' placeholder='Val'>
+            <input type='text' id='specialAttributeValue' name='specialAttributeValue' class='input-form input-special-value' onkeypress='return isNumber(event)' placeholder='Val'>
             <select id='specialAttributeRef' name='specialAttributeRef' class='input-form input-special-value'>
-              <option value=''>X</option>
+              <option value=''> </option>
               <option value='1'>1</option>
               <option value='2'>2</option>
               <option value='3'>3</option>
@@ -78,7 +78,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/cardManag
           </div>
 
           <div class='card-buttons d-flex mx-auto mt-5'>
-            <button type='submit' id='btn-save-card' name="action" value="Salvar-carta" class='m-2 manage-card-buttons savebtn' onclick='saveButton();'>
+            <button type='submit' id='btn-save-card' name="action" value="Salvar-carta" class='m-2 manage-card-buttons savebtn'  onclick='saveButton();'>
               <i class="fas fa-save"></i>
               <span class='manage-card-buttons-border'></span>
             </button>
@@ -103,7 +103,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/cardManag
           <table class='table table-sm table-hover table-bordered'>
             <thead class='thead-color'>
               <tr class='table-fixed-header'>
-                <th scope='col table-fixed-header' id='cardCount'>Cartas ()</th>
+                <th scope='col table-fixed-header' id='cardCount'>Cartas (<?php echo $countCards ?>)</th>
                 <th scope='col'><i class='fas fa-star text-warning'></i></th>
                 <th scope='col'><i class='fas fa-tasks'></i></i></th>
               </tr>
