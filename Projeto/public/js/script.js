@@ -105,7 +105,7 @@ document.querySelectorAll('.editIcon').forEach(element => {
 
 
 if (DOMStrings.cardCount) {
-  DOMStrings.cardCount.textContent = `Cartas (${document.querySelector('.table').children.length})`;
+  DOMStrings.cardCount.textContent = `Cartas (${document.querySelector('.noselect').children.length})`;
 }
 
 // NOTA: Transformar em função - Ao clique que "Novo baralho", reseta a página
@@ -232,3 +232,12 @@ function updateInputsForEdit() {
 }
 
 updateInputsForEdit();
+
+function isNumber(e) {
+  // Atribuindo qual o representante da tecla na tabela ASCII ou, se não encontrar, qual valor representa no teclado
+  var charCode = (e.which) ? e.which : e.keyCode
+  if (charCode > 31 && (charCode < 48 || charCode > 57))
+return false;
+  return true;
+
+}
