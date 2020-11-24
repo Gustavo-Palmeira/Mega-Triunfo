@@ -35,9 +35,9 @@ CREATE TABLE specialAttribute (
 
 CREATE TABLE userLogin (
 	userId BIGINT NOT NULL PRIMARY KEY IDENTITY(1,1),
-	userName VARCHAR(255) UNIQUE,
-	userPassword VARCHAR(255),
-	userEmail VARCHAR(255) UNIQUE,
+	userName VARCHAR(255),
+	userPassword VARCHAR(255) NOT NULL,
+	userEmail VARCHAR(255) NOT NULL UNIQUE,
 	userLevel TINYINT CHECK (userLevel >=1 AND userLevel<=3)
 	);
 
