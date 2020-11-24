@@ -4,9 +4,9 @@
 ini_set('display_startup_errors', 0);
 error_reporting(E_ALL); */
 
-// session_start();
+session_start();
 
-require './sessionStart.php';
+//require './sessionStart.php';
 
 require_once $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/database/db.php";
 

@@ -35,7 +35,6 @@
 
     // Checando se o tamanho está dentro do permitido
     if ($_FILES['deckImage']['size'] > 5000000) {
-        echo 'Desculpe, mas a imagem excede o limite de tamanho permitio (5MB)';
         $uploadOK = 0;
     }
 
@@ -45,6 +44,13 @@
         $uploadOK = 0;
     }
 
+    /* $imageSize = getimagesize($_FILES['deckImage']['tmp_name']);
+
+    if ($imageSize['width'] < 200 || $imageSize['height'] < 250) {
+        $uploadOK = 0;
+    } */
+
+    var_dump($uploadOK);
     // Checando se a imagem passou em todas as etapas anteriores
     if ($uploadOK === 0) {
         echo 'Desculpe, seu arquivo não foi carregado.';

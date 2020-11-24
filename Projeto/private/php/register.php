@@ -65,15 +65,14 @@ if (isset($erros) && count($erros) > 0) {
 
       $password = password_hash($password, PASSWORD_DEFAULT);
 
-      $stmt = $database->prepare('	INSERT INTO userLogin 
+      $stmt = $database->prepare("	INSERT INTO userLogin 
                                       ( userName, userEmail, userPassword ) 
                                     VALUES 
-                                      ( :namePrep, :emailPrep, :passwordPrep )');
+                                      ( :namePrep, :emailPrep, :passwordPrep )");
 
       $stmt->bindParam(':namePrep', $name);
       $stmt->bindParam(':emailPrep', $email);
       $stmt->bindParam(':passwordPrep', $password);
-
       $stmt->execute();
 
       return $database->lastInsertId();

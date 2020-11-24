@@ -15,8 +15,9 @@ include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/deckManag
     <div class='row bg-white container-shadow container-size'>
       <div class='col-3 container-card d-flex align-items-center vh-80'>
         <div class='container d-flex flex-wrap justify-content-center'>
-          <img src='https://via.placeholder.com/300x400' class='img-fluid mt-4 d-block mb-4' id='deckImageView'>
-
+          <div class='w-100 m-auto d-flex justify-content-center'>
+          <img src='https://via.placeholder.com/300x400' class='img-fluid mt-4 d-block mb-4' style='object-fit: cover;' id='deckImageView'>
+          </div>
           <button id='btn-new-deck' class='manage-card-buttons'>
             Novo Baralho
             <span class='manage-card-buttons-border'></span>
