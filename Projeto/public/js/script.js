@@ -38,6 +38,8 @@ let DOMStrings = {
   saveCardbtn: document.querySelector('#btn-save-card'),
   addCardbtn: document.querySelector('#btn-add-card'),
   closeDeckbtn: document.querySelector('#btn-close-deck'),
+  // SELECT DECK HOME
+  selectDeckHome: document.querySelector('#deckHomeImage'),
 }
 
 // Função troca visibilidade da senha
@@ -237,7 +239,15 @@ function isNumber(e) {
   // Atribuindo qual o representante da tecla na tabela ASCII ou, se não encontrar, qual valor representa no teclado
   var charCode = (e.which) ? e.which : e.keyCode
   if (charCode > 31 && (charCode < 48 || charCode > 57))
-return false;
+    return false;
   return true;
+}
 
+// DECK LIST HOME - Pegando ID do baralho selecionado
+function selectDeckHome(id) {
+  let idDeckCard = id.id.split('Id')[1];
+  let imageUrl = id.src.split('decks/')[1];
+  //DOMStrings.selectDeckHome.src = imageSRC;
+  window.location.href = `/Mega-Triunfo/Projeto/public/html/start-game.php?deckId=${idDeckCard}&deckUrl=${imageUrl}`;
+  //window.location.href = `/Mega-Triunfo/Projeto/private/php/cardSelectHome.php?deckId=${idDeckCard}`;
 }

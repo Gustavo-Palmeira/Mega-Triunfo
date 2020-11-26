@@ -17,9 +17,9 @@
     $check = getimagesize($_FILES['deckImage']['tmp_name']);
 
     if ($check) {
-        echo 'O arquivo é uma imagem - ' . $check['mime'] . '.';
+        //echo 'O arquivo é uma imagem - ' . $check['mime'] . '.';
     } else {
-        echo 'O arquivo não é uma imagem.';
+        //echo 'O arquivo não é uma imagem.';
         $uploadOK = 0;
     }
 
@@ -50,14 +50,14 @@
         $uploadOK = 0;
     } */
 
-    var_dump($uploadOK);
+    //var_dump($uploadOK);
     // Checando se a imagem passou em todas as etapas anteriores
     if ($uploadOK === 0) {
         echo 'Desculpe, seu arquivo não foi carregado.';
     } else {
         // Se tudo estiver certo, ele vai mover o arquivo para o local indicado
         if (move_uploaded_file($_FILES['deckImage']['tmp_name'], $targetFile)) {
-            echo 'O arquivo ' . htmlspecialchars(basename($_FILES['deckImage']['name'])) . ' foi carregado.';
+            //echo 'O arquivo ' . htmlspecialchars(basename($_FILES['deckImage']['name'])) . ' foi carregado.';
         } else {
             echo 'Desculpe, houve um erro ao carregar seu arquivo.';
         }
