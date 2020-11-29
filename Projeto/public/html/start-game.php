@@ -1,85 +1,17 @@
-<?php
-
-session_start();
-
-include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/public/html/partials/head.php"; ?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/public/html/partials/privateHead.php"; ?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/public/html/partials/header.php"; ?>
+<?php //include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/public/html/images/decks/"; 
+?>
 
 <body class='d-flex vh-100 align-items-center justify-content-center text-center flex-wrap overflow-start'>
-
-  <?php include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/public/html/partials/header.php"; ?>
 
   <main class='container d-flex justify-content-center align-items-center'>
     <div class='row bg-white container-shadow container-size'>
       <div class='col-6 container-card py-2'>
+
         <form class='container d-flex flex-wrap justify-content-around h-98' id="deck-table">
-          <div class="d-flex flex-column-reverse">
-            <img class="pt-1 pb-2 rounded border-card" id="" src="https://via.placeholder.com/110x150px">
-            <label for="img1">Nome Baralho</label>
-          </div>
-          <div class="d-flex flex-column-reverse">
-            <img class="pt-1 pb-2 rounded border-card" id="" src="https://via.placeholder.com/110x150px">
-            <label for="img1">Nome Baralho</label>
-          </div>
-          <div class="d-flex flex-column-reverse">
-            <img class="pt-1 pb-2 rounded border-card" id="" src="https://via.placeholder.com/110x150px">
-            <label for="img1">Nome Baralho</label>
-          </div>
-          <div class="d-flex flex-column-reverse">
-            <img class="pt-1 pb-2 rounded border-card" id="" src="https://via.placeholder.com/110x150px">
-            <label for="img1">Nome Baralho</label>
-          </div>
-          <div class="d-flex flex-column-reverse">
-            <img class="pt-1 pb-2 rounded border-card" id="" src="https://via.placeholder.com/110x150px">
-            <label for="img1">Nome Baralho</label>
-          </div>
-          <div class="d-flex flex-column-reverse">
-            <img class="pt-1 pb-2 rounded border-card" id="" src="https://via.placeholder.com/110x150px">
-            <label for="img1">Nome Baralho</label>
-          </div>
-          <div class="d-flex flex-column-reverse">
-            <img class="pt-1 pb-2 rounded border-card" id="" src="https://via.placeholder.com/110x150px">
-            <label for="img1">Nome Baralho</label>
-          </div>
-          <div class="d-flex flex-column-reverse">
-            <img class="pt-1 pb-2 rounded border-card" id="" src="https://via.placeholder.com/110x150px">
-            <label for="img1">Nome Baralho</label>
-          </div>
-          <div class="d-flex flex-column-reverse">
-            <img class="pt-1 pb-2 rounded border-card" id="" src="https://via.placeholder.com/110x150px">
-            <label for="img1">Nome Baralho</label>
-          </div>
-          <div class="d-flex flex-column-reverse">
-            <img class="pt-1 pb-2 rounded border-card" id="" src="https://via.placeholder.com/110x150px">
-            <label for="img1">Nome Baralho</label>
-          </div>
-          <div class="d-flex flex-column-reverse">
-            <img class="pt-1 pb-2 rounded border-card" id="" src="https://via.placeholder.com/110x150px">
-            <label for="img1">Nome Baralho</label>
-          </div>
-          <div class="d-flex flex-column-reverse">
-            <img class="pt-1 pb-2 rounded border-card" id="" src="https://via.placeholder.com/110x150px">
-            <label for="img1">Nome Baralho</label>
-          </div>
-          <div class="d-flex flex-column-reverse">
-            <img class="pt-1 pb-2 rounded border-card" id="" src="https://via.placeholder.com/110x150px">
-            <label for="img1">Nome Baralho</label>
-          </div>
-          <div class="d-flex flex-column-reverse">
-            <img class="pt-1 pb-2 rounded border-card" id="" src="https://via.placeholder.com/110x150px">
-            <label for="img1">Nome Baralho</label>
-          </div>
-          <div class="d-flex flex-column-reverse">
-            <img class="pt-1 pb-2 rounded border-card" id="" src="https://via.placeholder.com/110x150px">
-            <label for="img1">Nome Baralho</label>
-          </div>
-          <div class="d-flex flex-column-reverse">
-            <img class="pt-1 pb-2 rounded border-card" id="" src="https://via.placeholder.com/110x150px">
-            <label for="img1">Nome Baralho</label>
-          </div>
-          <div class="d-flex flex-column-reverse">
-            <img class="pt-1 pb-2 rounded border-card" id="" src="https://via.placeholder.com/110x150px">
-            <label for="img1">Nome Baralho</label>
-          </div>
+
+          <?php require $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/deckSelectHome.php"; ?>
 
         </form>
       </div>
@@ -89,13 +21,18 @@ include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/public/html/partials/
             <table class='table table-sm table-hover table-bordered scroll-bar'>
               <thead class='thead-color'>
                 <tr class='table-fixed-header'>
-                  <th scope='col table-fixed-header'>Baralhos</th>
-                  <th scope='col table-fixed-header'>Cartas</th>
+                  <th class="minWidthTableCardName" scope='col table-fixed-header'>Carta</th>
+                  <th class="minWidthTableCardSpecial" scope='col table-fixed-header'>Especial</th>
+                  <th class="minWidthTableCardIcon" scope='col table-fixed-header'> <i class="fas fa-star text-warning"> </th>
                 </tr>
               </thead>
               <tbody class="noselect">
                 <!-- Substituir depois por código PHP que vai atualizar com o banco de dados-->
-                <?php require $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/deckSelectHome.php"; ?>
+                <?php 
+                  If (isset($_GET['deckId'])) { 
+                    $deckIdCard = $_GET['deckId'];
+                    include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/cardSelectHome.php";
+                  } ?>
               </tbody>
             </table>
           </div>
@@ -103,7 +40,14 @@ include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/public/html/partials/
       </div>
       <div class='col-3 container-card'>
         <div class='container d-flex flex-wrap flex-column justify-content-center h-100 align-items-center'>
-          <img class='img-fluid mt-4 d-block rounded' src='https://via.placeholder.com/300x400'>
+              <?php 
+                if (isset($_GET['deckUrl'])) {
+                  $urlDeckImageBD = "./images/decks/" . $_GET['deckUrl'];
+                  ?> <img class='img-fluid mt-4 d-block deckHomeImageControl' width="220px" height="100px" id="deckHomeImage" src='<?php echo $urlDeckImageBD ?>'> <?php
+                } else {
+                  ?> <img class='img-fluid mt-4 d-block rounded' src='https://via.placeholder.com/300x400'> <?php
+                }
+              ?>
           <button id='btn-new-card' class='manage-card-buttons mt-3'>
             Jogar
             <span class='manage-card-buttons-border'></span>
@@ -113,5 +57,6 @@ include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/public/html/partials/
     </div>
     </div>
 </body>
+
 
 </html>

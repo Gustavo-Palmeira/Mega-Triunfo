@@ -37,18 +37,23 @@ foreach ($dbQuery as $deckSelect) {
     ];
 };
 
-if($deckTable) {
-if (count($deckTable) > 0) {
-    foreach ($deckTable as $register) {
-        echo "<tr>
-                <td>{$register['Name']}</td>
-                <td>{$register['ContCard']}</td>
-                <tr>                   
-                ";
-    }
-} else {
-    echo "<tr>
-                <td colspan='3'>Não há baralhos cadastrados</td>
+
+
+if ($deckTable) {
+    if (count($deckTable) > 0) {
+        foreach ($deckTable as $register) {
+            $deckNameSubs = substr("{$register['Name']}", 0, 9);
+            $urlImage = '../../public/html/' . $register['Photo'];
+            echo "  <div class='blockDeckHome'>
+                    <span class='nomeDeckHome'> $deckNameSubs </span> 
+                    <div class='row' id='listDeckHome'>
+                        <img class='imageDeckHome' src='$urlImage'  id='deckId{$register['Id']}' onclick='selectDeckHome(deckId{$register['Id']})'>
+                    </div>
+                </div>";
+        }
+    } else {
+        echo "  <tr>
+                    <td colspan='3'>Não há baralhos cadastrados</td>
                 </tr>";
-}
+    }
 }

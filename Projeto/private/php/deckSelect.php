@@ -1,4 +1,5 @@
 <?php
+
 // SELEÇÃO DE INFORMAÇÕES DE TODOS OS DECKS PARA MOSTRAR NA TABELA
 require $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/database/db.php";
 

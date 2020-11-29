@@ -1,22 +1,19 @@
-<?php
-
-require $_SERVER['DOCUMENT_ROOT'] . '/Mega-Triunfo/Projeto/public/html/partials/head.php';
-
-include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/deckManage.php";
-
-?>
-
-
 <body class='d-flex vh-100 align-items-center justify-content-center text-center flex-wrap overflow-start'>
 
-<?php include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/public/html/partials/header.php"; ?>
+  <?php
+
+  require $_SERVER['DOCUMENT_ROOT'] . '/Mega-Triunfo/Projeto/public/html/partials/head.php';
+  include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/deckManage.php";
+  include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/public/html/partials/header.php";
+
+  ?>
 
   <main class='container d-flex justify-content-center align-items-center'>
     <div class='row bg-white container-shadow container-size'>
       <div class='col-3 container-card d-flex align-items-center vh-80'>
         <div class='container d-flex flex-wrap justify-content-center'>
           <div class='w-100 m-auto d-flex justify-content-center'>
-          <img src='https://via.placeholder.com/300x400' class='img-fluid mt-4 d-block mb-4' style='object-fit: cover;' id='deckImageView'>
+            <img src='https://via.placeholder.com/300x400' class='img-fluid mt-4 d-block mb-4' style='object-fit: cover;' id='deckImageView'>
           </div>
           <button id='btn-new-deck' class='manage-card-buttons'>
             Novo Baralho
@@ -34,11 +31,11 @@ include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/deckManag
       <div class='col-6 d-flex flex-wrap align-content-center justify-content-center container-card'>
         <h1 class='h2 mb-5'>Cadastro de Baralho</h1>
 
-        <form class='row mx-auto' id='create-deck-form' method="POST" action='' enctype='multipart/form-data'>
+        <form class='row mx-auto' id='create-deck-form' method="post" action='' enctype='multipart/form-data'>
 
-        <div class="col-8 input-group image-container m-2 mx-auto">
+          <div class="col-8 input-group image-container m-2 mx-auto">
             <div class="custom-file">
-              <input type="file" class="custom-file-input" id="deckImage" name ='deckImage' accept='.png, .jpg, .jpeg'>
+              <input type="file" class="custom-file-input" id="deckImage" name='deckImage' accept='.png, .jpg, .jpeg'>
               <label class="custom-file-label text-left" for="deckImage" id='deckImagelbl'>Escolher foto</label>
             </div>
           </div>
@@ -86,7 +83,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/deckManag
             var $PHPEditArray = '';
             $PHPEditArray = <?php echo $jsDeckQuery; ?>;
           </script>
-          
+
         </form>
       </div>
 

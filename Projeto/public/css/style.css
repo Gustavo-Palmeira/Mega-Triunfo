@@ -331,3 +331,55 @@ Cor da scrollbar
 .overflow-start {
   overflow-y: hidden;
 }
+
+
+/* Lista baralhos Home */
+.imageDeckHome {
+  height: 150px;
+  width: 110px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+  border: solid 1px #0c0027;
+  box-shadow: 3px 3px var(--dark-purple);
+  cursor: pointer;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.nomeDeckHome {
+  margin-top: 50px;
+  font-weight: 500;
+}
+
+.blockDeckHome {
+  margin-right: 1.5vw;
+  margin-left: 1.5vw;
+}
+
+.deckHomeImageControl {
+  max-height: 300px;
+  min-width: 220px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+  border: solid 1px #0c0027;
+  box-shadow: 3px 3px var(--dark-purple);
+  cursor: pointer;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.minWidthTableCardName {
+  width: 98vw;
+}
+
+.minWidthTableCardSpecial {
+  width: 1vw;
+}
+
+.minWidthTableCardIcon {
+  width: 1vw;
+}
