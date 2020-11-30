@@ -17,9 +17,9 @@ $uploadOK = 1;
 $check = getimagesize($_FILES['cardImage']['tmp_name']);
 
 if ($check) {
-    echo 'O arquivo é uma imagem - ' . $check['mime'] . '.';
+    // echo 'O arquivo é uma imagem - ' . $check['mime'] . '.';
 } else {
-    echo 'O arquivo não é uma imagem.';
+    // echo 'O arquivo não é uma imagem.';
     $uploadOK = 0;
 }
 // Checando se a imagem já existe na pasta destino e substituindo-a, independente de sua extensão de arquivo
@@ -40,7 +40,7 @@ if ($_FILES['cardImage']['size'] > 5000000) {
 
 // Checando se a imagem está num formato permitido
 if ($imageType != 'jpg' && $imageType != 'png' && $imageType != 'jpeg') {
-    echo 'Desculpe, só são aceitos os formatos JPG, JPEG e PNG.';
+    // echo 'Desculpe, só são aceitos os formatos JPG, JPEG e PNG.';
     $uploadOK = 0;
 }
 
@@ -56,7 +56,7 @@ if ($uploadOK === 0) {
 } else {
     // Se tudo estiver certo, ele vai mover o arquivo para o local indicado
     if (move_uploaded_file($_FILES['cardImage']['tmp_name'], $targetFile)) {
-        echo 'O arquivo ' . htmlspecialchars(basename($_FILES['cardImage']['name'])) . ' foi carregado.';
+        // echo 'O arquivo ' . htmlspecialchars(basename($_FILES['cardImage']['name'])) . ' foi carregado.';
     } else {
         echo 'Desculpe, houve um erro ao carregar seu arquivo.';
     }

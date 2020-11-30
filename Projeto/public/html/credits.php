@@ -8,13 +8,13 @@
       <h2 class="mb-3"> Desevolvedores </h2>
         <div class="row mt-3 col-12">
           <div class="col-4 h4 container-card-dev d-flex align-items-center justify-content-center">
-            <img src='https://via.placeholder.com/270x320' class='img-fluid'>
+            <img src='./images/cards/card-arthur-credits.png' class='img-fluid'>
           </div>
           <div class="col-4 h4 container-card-dev d-flex align-items-center justify-content-center">
-            <img src='https://via.placeholder.com/270x320' class='img-fluid'>
+            <img src='./images/cards/card-sato-credits.png' class='img-fluid'>
           </div>
           <div class="col-4 h4 container-card-dev d-flex align-items-center justify-content-center">
-            <img src='https://via.placeholder.com/270x320' class='img-fluid'>
+            <img src='./images/cards/card-gustavo-credits.png' class='img-fluid'>
           </div>
         </div>
         <div class="row mt-3 col-12">
