@@ -5,16 +5,16 @@
   <?php include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/public/html/partials/header.php"; ?>
   <main class='container d-flex justify-content-center align-items-center'>
     <div class='bg-white container-shadow container-size w-100 p-4'>
-      <h2 class="mb-3"> Desevolvedores </h2>
+      <h2 class="mb-3 mr-4"> Desenvolvedores </h2>
         <div class="row mt-3 col-12">
           <div class="col-4 h4 container-card-dev d-flex align-items-center justify-content-center">
-            <img src='./images/cards/card-arthur-credits.png' class='img-fluid'>
+            <img src='./images/cards/card-arthur-credits.png' class='img-fluid' width="230px">
           </div>
           <div class="col-4 h4 container-card-dev d-flex align-items-center justify-content-center">
-            <img src='./images/cards/card-sato-credits.png' class='img-fluid'>
+            <img src='./images/cards/card-sato-credits.png' class='img-fluid' width="230px">
           </div>
           <div class="col-4 h4 container-card-dev d-flex align-items-center justify-content-center">
-            <img src='./images/cards/card-gustavo-credits.png' class='img-fluid'>
+            <img src='./images/cards/card-gustavo-credits.png' class='img-fluid' width="230px">
           </div>
         </div>
         <div class="row mt-3 col-12">

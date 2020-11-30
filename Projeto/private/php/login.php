@@ -1,9 +1,5 @@
 <?php
 
-/* ini_set('display_errors', 0);
-ini_set('display_startup_errors', 0);
-error_reporting(E_ALL); */
-
 //require './sessionStart.php';
 
 require $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/database/db.php";

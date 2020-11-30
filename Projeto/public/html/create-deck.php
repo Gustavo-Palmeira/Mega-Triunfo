@@ -13,7 +13,7 @@
       <div class='col-3 container-card d-flex align-items-center vh-80'>
         <div class='container d-flex flex-wrap justify-content-center'>
           <div class='w-100 m-auto d-flex justify-content-center'>
-            <img src='https://via.placeholder.com/300x400' class='img-fluid mt-4 d-block mb-4' style='object-fit: cover;' id='deckImageView'>
+            <img src='https://via.placeholder.com/300x400' class='mt-4 d-block mb-4' height="300px" style='object-fit: cover;' id='deckImageView'>
           </div>
           <button id='btn-new-deck' class='manage-card-buttons'>
             Novo Baralho

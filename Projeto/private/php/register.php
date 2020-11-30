@@ -42,7 +42,7 @@ if (isset($erros) && count($erros) > 0) {
               <input class="input-style input-invisible" type="password" name="passwordConfForm" id="passwordConfForm" onpaste="return false" ondrop="return false" required>
               <img class="icon-style ml-4" src="../../public/img/icons/key.svg" alt="Ícone senha">
             </div>
-            <button href="#" class="btn-submit mx-auto mt-2">
+            <button href="#" class="btn-submit mx-auto mt-2" style="background-color: #0c0027;">
               <input type="hidden" name="register" id="register" value="register">
               <span class="btn-border"></span>
               <img class="icon-style icon-arrow-style" src="../../public/img/icons/arrow.svg" alt="Ícone senha">

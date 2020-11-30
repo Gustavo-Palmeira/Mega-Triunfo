@@ -14,7 +14,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/cardManag
     <div class='row bg-white container-shadow container-size'>
       <div class='col-3 container-card d-flex align-items-center vh-80'>
         <div class='container d-flex flex-wrap justify-content-center'>
-          <img src='https://via.placeholder.com/300x400' class='img-fluid mt-3 d-block' id='cardImageView'>
+          <img src='https://via.placeholder.com/300x400' class='mt-3 d-block' height="300px" id='cardImageView'>
           <span class='h4 mt-3'>Nome do Baralho</span>
           <button id='btn-new-card' class='manage-card-buttons mt-3'>
             Nova carta
