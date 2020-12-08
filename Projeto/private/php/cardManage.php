@@ -14,7 +14,7 @@ if (isset($_POST['action']) && $_POST['action'] === 'Salvar-carta') {
         } else {
 
             include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/cardImage.php";
-            $queryParam =  ', c.cardPhoto = :cardPhotoBind';
+            $queryParam =  ', cardPhoto = :cardPhotoBind';
         }
 
         $dbQueryCard = $database->prepare("UPDATE card SET
@@ -50,10 +50,9 @@ if (isset($_POST['action']) && $_POST['action'] === 'Salvar-carta') {
                                                     :specialValueBind,
                                                     :cardIdBind);");
         }
-        
+
         $dbQueryCard->bindValue(':cardIdBind', $_GET['idForEdit']);
         $dbQuerySpecial->bindValue(':cardIdBind', $_GET['idForEdit']);
-
     } else {
 
         if (!file_exists($_FILES['cardImage']['tmp_name']) || !is_uploaded_file($_FILES['cardImage']['tmp_name'])) {
@@ -63,8 +62,8 @@ if (isset($_POST['action']) && $_POST['action'] === 'Salvar-carta') {
             $queryField = null;
         } else {
             include $_SERVER['DOCUMENT_ROOT'] . "/Mega-Triunfo/Projeto/private/php/cardImage.php";
-            $queryField = 'cardPhoto,';
-            $queryParam = ':cardPhotoBind,';
+            $queryField = ', cardPhoto,';
+            $queryParam = ', :cardPhotoBind,';
         }
 
         $dbQueryCard = $database->prepare("INSERT INTO card (
@@ -72,7 +71,7 @@ if (isset($_POST['action']) && $_POST['action'] === 'Salvar-carta') {
                                                        cardAtt1Value,	
                                                        cardAtt2Value, 
                                                        cardAtt3Value, 
-                                                       cardAtt4Value, 
+                                                       cardAtt4Value
                                                        $queryField 
                                                        deckId)
                                             VALUES (
@@ -80,7 +79,7 @@ if (isset($_POST['action']) && $_POST['action'] === 'Salvar-carta') {
                                                        :cardAtt1Bind,
                                                        :cardAtt2Bind,
                                                        :cardAtt3Bind,
-                                                       :cardAtt4Bind,
+                                                       :cardAtt4Bind
                                                        $queryParam
                                                        :deckIdBind);");
 
@@ -115,7 +114,6 @@ if (isset($_POST['action']) && $_POST['action'] === 'Salvar-carta') {
         $dbQuerySpecial->bindValue(':specialValueBind', $_POST['specialAttributeValue']);
         $dbQuerySpecial->execute();
     }
-
 } else if (isset($_POST['action']) && $_POST['action'] === 'Excluir-carta' && isset($_GET['idForEdit'])) {
 
     $dbQuery = $database->prepare("DELETE FROM card WHERE cardId = :cardIdBind;");
